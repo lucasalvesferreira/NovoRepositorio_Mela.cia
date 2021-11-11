@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="stylesheet" href="login.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="melan2.ico" type="image/x-icon">
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="cabeca">
+    <a href="melanciav2.html" style="margin-top: 50px ;"><h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3></a>
+    <u class="lista">
+      <li><a href="melanciav2.html">Inicio</a></li>
+      <li><a href="Calculadora.html">Simulador</a></li>
+      <li><a href="loginmelan.html"><Span>Login</Span></a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+    </u>
+  </div>
+
+  <div id="hide">
+  <div class="log">
+    <h2>Bem vindo de volta! 😀</h2>
+
+    <p>Email:</p> <input type="email" id="inp_email" placeholder="Email...">
+    <p>Senha:</p> <input type="password" id="inp_senha" placeholder="Senha...">
+
+    <button onclick="bt_log()" class="bt_login">
+      Entrar
+    </button>
+  </div>
+  </div>
+  <div id="div_botao">
+    <button id="bt_inic" onclick="location.href='C:\\Users\\Aluno\\Documents\\LucasA\\git\\Melan_cia\\melancia\\Api_Dht11-Melan_cia\\API\\IndexArduinos.html'">Ir para meu dashboard</button>
+    </div>
+</body>
+
+</html>
+<script>
+
+  function bt_log(){
+      if(inp_email.value == "admin" && inp_senha.value == "admin"){
+        hide.innerHTML = `<h1>Sentimos sua <span style="color:red;"> falta </span>, mas ficamos felizes que já tenha <span style="color:green;"> voltado </span>!!</h1>`; 
+        bt_inic.style.display="block";
+      } else{
+        alert("E-mail e/ou Senha inválidos")
+      }
+  }
+
+</script>  

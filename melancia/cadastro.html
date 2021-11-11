@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <link rel="stylesheet" href="cadstro.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="melan2.ico" type="image/x-icon">
+  <title>Cadastro</title>
+</head>
+
+<body>
+  <div class="cabeca">
+    <a href="melanciav2.html" style="margin-top: 50px ;"><h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3></a>
+    <u class="lista">
+      <li><a href="melanciav2.html">Inicio</a></li>
+      <li><a href="Calculadora.html">Simulador</a></li>
+      <li><a href="loginmelan.html">Login</a></li>
+      <li><a href="cadastro.html"><Span>Cadastro</Span></a></li>
+    </u>
+  </div>
+
+  <div id="hide">
+  <div class="cad">
+    <h2>Cadastro da empresa</h2>
+
+    <p>Nome</p> <input type="text" id="inp_nome" placeholder="Nome...">
+    <p>CNPJ</p> <input type="text" id="inp_cnpj" placeholder="CNPJ...">
+    <p>Razão da empresa</p> <input type="text" id="inp_razao" placeholder="Nome da empresa...">
+    <p>Email</p> <input type="email" id="inp_email" placeholder="Email...">
+    <p>Confirmar Email</p> <input type="email" id="inp_confirm_email" placeholder="Confirme o Email...">
+    <p>Senha</p> <input type="text" id="inp_senha" placeholder="Senha...">
+    <p>Confirmar Senha</p> <input type="text" id="inp_confirm_senha" placeholder="Confirme a Senha...">
+
+    <button onclick="bt_cadas()" class="bt_cad">
+      Cadastrar!
+    </button>
+  </div>
+  </div>
+  
+  <div id="div_botao">
+  <button id="bt_inic" onclick="location.href='loginmelan.html'"> Ir para login </button>
+  </div>
+</body>
+
+</html>
+
+<script>
+
+  function bt_cadas(){
+
+    if(inp_email.value == "" || inp_nome.value == "" || inp_cnpj.value == "" || inp_razao.value == "" || inp_confirm_email.value == ""
+    || inp_senha.value == "" || inp_confirm_senha.value == ""){
+      alert("Por favor, preencha todos os campos")
+    }else if(inp_confirm_email.value != inp_email.value){
+        alert("Por favor digite o mesmo endereço de E-mail nos dois campos necessários")
+      }else if (inp_confirm_senha.value != inp_senha.value){
+        alert("Por favor digite a mesma senha nos dois campos necessários")
+      }else{ 
+        hide.innerHTML=`<h1>Seja bem vindo à  <span class="melan">Melan</span>.<span class="cia"> cia </span>  senhor(a) ${inp_nome.value}! </h1>`;
+        bt_inic.style.display="block";
+      }
+    }
+ 
+
+</script>

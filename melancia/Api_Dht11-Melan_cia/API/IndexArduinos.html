@@ -1,0 +1,229 @@
+    <!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="C:\Users\Aluno\Documents\LucasA\git\Melan_cia\melancia\dash.css">
+    <title>Line Chart</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	<style>
+		canvas {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select: none;
+		}
+	</style>
+
+
+</head>
+<body>
+    <div class="cabeca">
+        <a href="melanciav2.html" style="margin-top: 50px ;"><h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3></a>
+        <u class="lista">
+          <li><a href="melanciav2.html">Inicio</a></li>
+          <li><a href="Calculadora.html">Simulador</a></li>
+          <li><a href="loginmelan.html"></a></li>
+          <li><a href="cadastro.html">Cadastro</a></li>
+        </u>
+      </div>
+   <div class="Graficos">
+
+    <div class="Grafico1">
+
+        <div>
+            <h1>Temperatura</h1>
+                <section>
+                    <h2>Média: <label id='averageT'>0.00</label></h2>
+                </section>
+                <section style="width:50%;height: 300px;">
+                    <canvas id="chart"></canvas>
+                </section>
+        <div id='msg' style="display: none;"> <span style="color: red;">Temperatura Critica!!</span> </div>
+</div>  
+<br><br>
+</div>
+
+<div class="Grafico2">
+    <div>
+        <h1>Umidade</h1>
+        <section>
+            <h2>Média: <label id='averageU'>0.00</label></h2>
+        </section>
+        <section style="width:50% ;height: 300px;">
+            
+            <canvas id="chart2"></canvas>
+        </section>
+        <br>
+        <div id='msg2' style="display: none;"> <span style="color: red;">Umidade Critica!!</span> </div>
+	    </div>
+
+    </div>
+
+   </div> 
+
+
+
+
+</body>
+</html>
+
+
+<script>
+var context = document.getElementById("chart").getContext("2d");
+context.canvas.width = 1000;
+context.canvas.height = 300;
+
+var configuration = {
+    type: 'line',
+    data: {
+        datasets: [{
+            label: "Temperatura (°C)",
+            borderColor: '#008000',
+            backgroundColor: '#00FA9A',
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                distribution: 'series',
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Temperatura (°C)'
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        animation: {
+            duration: 0
+        }
+    }
+};
+var context2 = document.getElementById("chart2").getContext("2d");
+context2.canvas.width = 1000;
+context2.canvas.height = 300;
+
+var configuration2 = {
+    type: 'line',
+    data: {
+        datasets: [{
+            label:"Umidade (%)" ,
+            borderColor: '#008000',
+            backgroundColor: '#00FA9A',
+        }]
+    },
+    options: {
+        scales: {
+            xAxes: [{
+                distribution: 'series',
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+            yAxes: [{
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Umidade (%)'
+                },
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        },
+        animation: {
+            duration: 0
+        }
+    }
+};
+
+var chart2 = new Chart(context2, configuration2);
+var chart = new Chart(context, configuration);
+this.lastIndexTemp = 0;
+this.time = 0;
+
+function get_data() {
+
+    var http = new XMLHttpRequest();
+    http.open('GET', 'http://localhost:3000/api', false);
+    http.send(null);
+
+    var obj = JSON.parse(http.responseText);
+
+    var _lastIndexTemp = this.lastIndexTemp;
+    this.lastIndexTemp = obj.temperatura.length;
+    listTemp = obj.temperatura.slice(_lastIndexTemp);
+    listUmi = obj.umidade.slice(_lastIndexTemp);
+
+    listTemp.forEach(data => {
+        if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+            chart.data.labels.shift();
+            chart.data.datasets[0].data.shift();
+        }
+
+        chart.data.labels.push(this.time++);
+        chart.data.datasets[0].data.push(parseFloat(data));
+
+        if(data > 35){
+            chart.data.datasets[0].backgroundColor ='red'
+            chart.data.datasets[0].borderColor ='red'
+            msg.style.display='block'
+
+        }
+        else if (data < 35){
+            chart.data.datasets[0].backgroundColor ='#00FA9A'
+            chart.data.datasets[0].borderColor ='#008000'
+            xmsg.style.display='none'
+        }
+        chart.update();
+
+        
+    });
+
+
+
+    listUmi.forEach(data => {
+        if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10) {
+            chart2.data.labels.shift();
+            chart2.data.datasets[0].data.shift();
+        }
+
+        chart2.data.labels.push(this.time++);
+        chart2.data.datasets[0].data.push(parseFloat(data));
+
+        if(data > 35){
+            chart2.data.datasets[0].backgroundColor ='red'
+            chart2.data.datasets[0].borderColor ='red'
+            msg2.style.display='block'
+
+        }
+        else if (data < 35){
+            chart2.data.datasets[0].backgroundColor ='#00FA9A'
+            chart2.data.datasets[0].borderColor ='#008000'
+            msg2.style.display='none'
+        }
+        chart2.update();
+
+    });
+
+
+
+    averageT.innerHTML = obj.averageTemperatura;
+    averageU.innerHTML = obj.averageUmidade;
+
+}
+
+setInterval(() => {
+    get_data();
+}, 1000);
+
+</script>
