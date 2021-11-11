@@ -1,6 +1,6 @@
 # Sprint's Grupo 5 
 
-Grupo 5:  Alexandre, Gustavo, Henrique, Luana, Lucas, Sara. 
+Grupo 5:  Alexandre, Gustavo,Luana, Lucas, Sara. 
 
 Overview:
 
@@ -12,8 +12,6 @@ O principal desafio é contribuir com a qualidade e a entrega com precisão e ex
 Email's dos Colaboradores:
 
 alexandre.gavazzi@bandtec.com.br
-
-henrique.valentim@bandtec.com.br
 
 luana.hamaishi@bandtec.com.br
 
