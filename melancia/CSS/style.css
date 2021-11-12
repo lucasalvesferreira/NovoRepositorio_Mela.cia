@@ -19,12 +19,21 @@ background-color: green;    /* color of the scroll thumb */
 width: 5px;       /* roundness of the scroll thumb */
 
 
-.cabeca #mel{
-color: red;
-}
-.cabeca #ciaa{
-color: green;
-}
+
+#mel{
+    margin-top: 35px;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 50px; 
+    color: rgb(255, 8, 0);}
+
+    #ciaa{
+        margin-top: 35px;
+        font-weight: normal;
+        font-size: 50px; 
+        color: rgb(16, 163, 16);
+      }
+      
 .cabeca h3{
 font-weight: normal;
 font-size: 50px; 

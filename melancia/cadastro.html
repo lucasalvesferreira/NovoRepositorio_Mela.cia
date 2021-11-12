@@ -5,23 +5,112 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="melan2.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="IMGS/melan2.ico" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/Cadastro.css">
-  <title>Cadastro</title>
+  
+  <title>Melan.cia/Cadastro</title>
 </head>
 
 <body>
   <div class="cabeca">
-    <h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3>
-    <u class="lista">
-      <li><a href="melanciav2.html">Inicio</a></li>
-      <li><a href="Calculadora.html">Simulador</a></li>
-      <li><a href="loginmelan.html">Login</a></li>
-      <li><a href="cadastro.html"><Span>Cadastro</Span></a></li>
-    </u>
+    <a href="./index.html"><h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3></a>
+    <nav class="stroke">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="#">Sobre nós</a></li>
+        <li><a href="#">Calculadora</a></li>
+        <li><a href="#">Login/Cadastro</a></li>
+
+      </ul>
+    </nav>
+    </section>
   </div>
 
-  <div class="cad">
+
+
+<div class="formularioLeC">
+
+
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form action="#">
+        <h1>Crie sua conta :</h1> 
+        
+        <!-- <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div>  -->
+        
+        <span>ou use seu e-mail para registro</span> 
+        <input type="text" placeholder="Nome" />
+        <input type="email" placeholder="Email" />
+        <input type="text" placeholder="CNPJ" />
+        <input type="password" placeholder="Senha" />
+        <button>Inscrever-se</button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+      <form action="#">
+        <h1>Entrar</h1>
+        <!-- <div class="social-container">
+          <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+          <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+        </div> -->
+        
+        <span>ou use sua conta</span>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Senha" />
+        <a href="#">Esqueceu sua senha?</a>
+        <button>Entrar</button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Bem vindo de volta!</h1>
+          <p>Para se manter conectado conosco, faça o login com suas informações pessoais.</p>
+          <button class="ghost" id="signIn">Entrar</button>
+        </div>
+        
+        <div class="overlay-panel overlay-right">
+          <h1>Olá, Amigo!</h1>
+          <p>Insira seus dados pessoais e comece a jornada conosco.</p>
+          <button class="ghost" id="signUp">Inscrever-se</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <footer>
+    <p>
+      Aqui <i class="fa fa-heart"></i> vai ficar o footer
+      
+    </p>
+  </footer>
+
+  <script>
+
+const signUpButton = document.getElementById('signUp');
+const signInButton = document.getElementById('signIn');
+const container = document.getElementById('container');
+
+signUpButton.addEventListener('click', () => {
+	container.classList.add("right-panel-active");
+});
+
+signInButton.addEventListener('click', () => {
+	container.classList.remove("right-panel-active");
+}); 
+
+ </script> 
+
+<!-- 
+   <div class="cad">
     <h2>Cadastro da empresa</h2>
 
     <p>Nome</p> <input type="text" id="inp_nome" placeholder="Nome...">
@@ -33,8 +122,9 @@
     <button onclick="bt_log()" class="bt_cad">
       Cadastrar!
     </button>
-  </div>
+
+  </div> -->
 
 </body>
 
-</html>
+</html> 
