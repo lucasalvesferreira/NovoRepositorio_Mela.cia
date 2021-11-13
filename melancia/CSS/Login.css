@@ -5,6 +5,13 @@
   margin: 0;
   font-family: 'Spartan', sans-serif;
 }
+:root{
+  --red-main: #ff0000;
+  --red-main-darker: #BF211E;
+  --green-main: #27a300;
+  --green-main-darker: #008000;
+  
+  }
 
 body{
 background-image: url(fundo1.jpg);
@@ -12,17 +19,17 @@ background-image: url(fundo1.jpg);
 .cabeca{
 display: flex;
 background-color: white;
-border-bottom: 2px solid green;
+border-bottom: 2px solid var(--green-main);
 height: 110px;
 text-align: center;
 justify-content: space-between;
 padding-left: 4%;
 }
 .cabeca #mel{
-color: red;
+color: var(--red-main);
 }
 .cabeca #ciaa{
-color: green;
+color: var(--green-main);
 }
 .cabeca h3{
 margin-top: 2.5%;
@@ -65,10 +72,10 @@ flex-direction: column;
 font-size: 20px;
 font-weight: bolder;
 background-color: transparent;
-border-bottom: 3px solid green;
+border-bottom: 3px solid var(--green-main);
 }
 .bt_login{
-background-color: #4CAF50; /* Green */
+background-color: var(--green-main-darker); /* Green */
 border: none;
 color: white;
 padding: 15px 32px;

@@ -8,11 +8,17 @@
 body{
 background-color: #ddfde6;
 }
-
+:root{
+  --red-main: #ff0000;
+  --red-main-darker: #BF211E;
+  --green-main: #27a300;
+  --green-main-darker: #008000;
+  
+  }
 .cabeca{
   display: flex;
   background-color: white;
-  border-bottom: 2px solid green;
+  border-bottom: 2px solid var(--green-main);
   height: 110px;
   text-align: center;
   justify-content: space-between;
@@ -33,10 +39,10 @@ font-weight: bolder;
 cursor: pointer;
 }
 .cabeca #mel{
-color: red;
+color: var(--red-main);
 }
 .cabeca #ciaa{
-color: green;
+color: var(--green-main);
 }
 .cabeca h3{
 margin-top: 2.5%;
@@ -74,7 +80,7 @@ flex-direction: column;
 font-size: 20px;
 font-weight: bolder;
 background-color: transparent;
-border-bottom: 3px solid green;
+border-bottom: 3px solid var(--green-main);
 }
 .calculadora #inp_preco{
 margin-bottom: 5%;
@@ -83,7 +89,7 @@ margin-bottom: 5%;
 margin-bottom: 5%;
 }
 .calc .butam{
-background-color: #4CAF50; /* Green */
+background-color: var(--green-main-darker); /* Green */
 border: none;
 color: white;
 padding: 15px 32px;
@@ -104,7 +110,7 @@ font-family: 'Spartan', sans-serif;
 display: flex;
 justify-content: center;
 font-weight: bold;
-color: rgb(0, 93, 41);
+color: var(--green-main-darker);
 font-size: 20px;
 margin-bottom: 5%;
 }
@@ -117,9 +123,9 @@ margin-top: 5%;
 
 }
 .mel{
-color: rgb(255, 39, 39);
+color: var(--red-main);
 }
 .ci{
-color: rgb(0, 93, 41);
+color: var(--green-main-darker);
 
 }

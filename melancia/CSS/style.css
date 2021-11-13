@@ -3,21 +3,18 @@
 *{
 padding: 0;
 margin: 0;
-font-family: 'Spartan', sans-serif;
+font-family:  'Spartan', sans-serif;
 }
-/* body::-webkit-scrollbar {
-width: 15px;               /* width of the entire scrollbar */
-/* }
 
-body::-webkit-scrollbar-track {
-background: red;        /* color of the tracking area */
-/* }
+/*  Variaveis para as cores*/
+:root{
+--red-main: #ff4b4b;
+--red-main-darker: #e20501;
+--green-main: #61c443;
+--green-main-darker: #008000;
 
-/* body::-webkit-scrollbar-thumb {
-background-color: green;    /* color of the scroll thumb */
-/* border-radius: 2px;
-width: 5px;       /* roundness of the scroll thumb */
 
+}
 
 
 nav {
@@ -63,27 +60,79 @@ margin: auto;
 width: 0%;
 content: '.';
 color: transparent;
-background: #ff0000;
+background: var(--red-main-darker);
 height: 1px;
 }
 nav.stroke ul li a:hover:after {
 width: 100%;
 }
+
 .firstline{
 height: 550px;
 width: 100%;
 display: flex;
 justify-content: center;
+margin-top: 5%;
+}
+.nossaline{
+height: 550px;
+display: flex;
+justify-items: center;
+font-weight: normal;
+background-image: url(../IMGS/escritorio3.jpg);
+background-repeat: no-repeat;
+background-position: right;
+background-size: 50%;
+margin-top: 5%;
+margin-bottom: 5%;
+margin-right: 2%;
+}
+.nossaline p{
+margin-top: 3%;
+}
+.nossaline h1{
+margin-top: 10%;
+}
+.calculadoraliner{
+height: 550px;
+display: flex;
+align-items: center;
+padding-top: 8%;
+background-image: url(../IMGS/vaso_moedas_planta.jpg );  
+background-size: 100%;
+background-position-y: 44%;
+}
+.calculadoraliner p{
+margin-top: 5%;
+}
+.teamliner{
+height: 550px;
+display: flex;
+justify-items: center;
+background-image: url(../IMGS/fundo_pessoas_computador.png);
+background-position: 50%;
+background-position-y: 50%;
+background-repeat: no-repeat;
+background-size:100%;
+font-weight: bold;
 }
 .textofirstline{
 width: 75%;
 
 }
 .textofirstline #mel{
-color: red;
+color: var(--red-main);
 }
 .textofirstline #ciaa{
-color: green;
+color: var(--green-main);
+}
+.footerline #ciaa{
+font-size: 30px;
+color: var(--green-main);
+}
+.footerline #mel{
+font-size: 30px;
+color: var(--red-main);
 }
 .textofirstline h3{
 display: flex;
@@ -103,28 +152,18 @@ font-size: 20px;
 justify-content: center;
 text-align: center;
 }
-.calculadoraliner{
-height: 500px;
-display: flex;
-justify-items: center;
-background-image: url(../IMGS/5252601.jpg);
-background-position: right;
-background-position-y: 50%;
-background-repeat: no-repeat;
-background-size: 40%;
-margin-right: 3%;
-}
+
 .textostart{
 width: 45%;
-height: 500px;
+height: 550px;
 display: flex;
 justify-items: center;
 align-items: center;
 flex-direction: column;
 text-align: center;
-margin-left: 5%;
-margin-top: 3%;
-font-size: 30px;
+margin-left: 1%;
+margin-top: 4%;
+font-size: 25px;
 }
 .textoend{
 width: 100%;
@@ -152,24 +191,16 @@ font-size: 50px;
 color: white;
 }
 
-.calculadoraliner .btn{
-margin-top: 5%;
+.calculadoraliner button {
+margin-top: 9%;
 }
 .teamliner .btn_b{
 margin-top: 5%;
 }
-.teamliner{
-height: 550px;
-display: flex;
-justify-items: center;
-background-image: url(../IMGS/marvin-meyer-SYTO3xs06fU-unsplash.jpg);
-background-position: left;
-background-position-y: 50%;
-background-repeat: no-repeat;
-background-size:100%;
+.nseiline .bntcomp{
+margin-top: 9%;
 }
-
-/* BOTÃO VERDE */
+/* BOTÃO VERDE ANIMADO */
 .btn {
 position: relative;
 display: inline-block;
@@ -180,7 +211,7 @@ text-align: center;
 text-decoration:none;
 font-weight: bold;
 font-size:20px;
-color: #325935;
+color: var(--green-main-darker);
 }
 
 .btn svg {
@@ -200,34 +231,123 @@ stroke-dasharray: 196, 543;
 stroke-dashoffset: 437;
 }
 
-/* BOTÃO BRANCO */
-.btn2 {
-position: relative;
-display: inline-block;
-width: 277px;
-font-weight: bold;
-line-height: 60px;
+/* BOTÃO TEAM */
+button {
+border-radius: 4px;
+background-color: white;
+border: none;
 text-align: center;
-text-decoration:none;
-font-weight: bold;
-font-size:20px;
-color: #ffffff;
+font-size: 32px;
+padding: 16px;
+width: 220px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 36px;
+box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
 }
 
-.btn2 svg {
+button{
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+button:after {
+content: '»';
 position: absolute;
-top: 0;
-left: 0;
+opacity: 0;  
+top: 14px;
+right: -20px;
+transition: 0.5s;
 }
 
-.btn2 svg rect {
-stroke-width: 2;
-stroke-dasharray: 353, 0;
--webkit-transition: all 600ms ease;
+button:hover{
+padding-right: 24px;
+padding-left:8px;
 }
-.btn2:hover svg rect {
-stroke-width: 2;
-stroke-dasharray: 196, 543;
-stroke-dashoffset: 437;
+
+button:hover:after {
+opacity: 1;
+right: 10px;
 }
+/* BOTÃO VERDE */
+.bntcomp {
+border-radius: 4px;
+background-color: var(--green-main);
+color: white;
+border: none;
+text-align: center;
+font-size: 32px;
+padding: 16px;
+width: 220px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 36px;
+box-shadow: 0 10px 20px -8px rgba(0, 0, 0,.7);
+}
+
+.bntcomp{
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.bntcomp:after {
+content: '»';
+position: absolute;
+opacity: 0;  
+top: 14px;
+right: -20px;
+transition: 0.5s;
+}
+
+.bntcomp:hover{
+padding-right: 24px;
+padding-left:8px;
+}
+
+.bntcomp:hover:after {
+opacity: 1;
+right: 10px;
+}
+.footerline {
+display: flex;
+height: 250px;
+padding: 4%;
+
+}
+.caixafooter{
+width: 24%;
+padding-left: 6%;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+}
+.caixafooter h1{
+margin-bottom: 5%;
+margin-bottom: 3%;
+}
+.caixafooter h3{
+margin-bottom: 5%;
+}
+.caixafooter img{
+height: 20px;
+}
+li, a{
+text-decoration: none;
+list-style: none;
+margin-bottom: 3%;
+}
+.icons{
+height: 90px;
+border-top: black 1px solid;
+}
+.icons p{
+display: flex;
+justify-content: center;
+margin-top: 3%;
+}
+
 
