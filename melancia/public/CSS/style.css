@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+padding: 0;
+margin: 0;
+font-family: 'Spartan', sans-serif;
+}
+/* body::-webkit-scrollbar {
+width: 15px;               /* width of the entire scrollbar */
+/* }
+
+body::-webkit-scrollbar-track {
+background: red;        /* color of the tracking area */
+/* }
+
+/* body::-webkit-scrollbar-thumb {
+background-color: green;    /* color of the scroll thumb */
+/* border-radius: 2px;
+width: 5px;       /* roundness of the scroll thumb */
+
+
+
+#mel{
+    margin-top: 35px;
+    margin-left: 20px;
+    font-weight: normal;
+    font-size: 50px; 
+    color: rgb(255, 8, 0);}
+
+    #ciaa{
+        margin-top: 35px;
+        font-weight: normal;
+        font-size: 50px; 
+        color: rgb(16, 163, 16);
+      }
+      
+.cabeca h3{
+font-weight: normal;
+font-size: 50px; 
+}
+.cabeca{
+display: flex;
+justify-content: space-evenly;
+}
+nav {
+display: flex;
+justify-content: flex-end;
+width: 100%;
+background: #fff; 
+padding-top: 1%;
+padding-bottom: 1%;
+}
+nav ul {
+list-style: none;
+text-align: center;
+}
+nav ul li {
+display: inline-block;
+}
+nav ul li a {
+display: block;
+padding: 15px;
+text-decoration: none;
+color: #aaa;
+font-weight: 800;
+text-transform: uppercase;
+margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+transition: all .5s;
+}
+nav.stroke ul li a,
+nav.fill ul li a {
+position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+width: 0%;
+content: '.';
+color: transparent;
+background: #333;
+height: 1px;
+}
+nav.stroke ul li a:hover:after {
+width: 100%;
+}
+.firstline{
+height: 550px;
+width: 100%;
+display: flex;
+background-image: url(../assets/bruno-emmanuelle-IxigtHjNZF8-unsplash.jpg);
+background-size: 100%;
+background-repeat: no-repeat;
+background-position-x: center;
+background-position-y: center;
+}
+.textofirstline{
+display: flex;
+text-align: justify;
+margin-top: 20%;
+margin-left: 3%;
+color: white;
+font-size: 40px;
+}
+
+
+.containerSobre .sobreTxt{
+display: flex;
+font-size: 25px;
+text-align: left;
+
+}
+.sobreTxt .textos{
+display: flex;
+margin-top: 2%;
+font-size: 30px;
+align-items: center;
+justify-content: center;
+}
+.container{
+display: flex;
+width: 80%;
+margin: auto;
+justify-content: space-evenly;
+}
+
+/*VETORES DESENHO DE SOLUÇÃO */
+.titulo{
+display: flex;
+justify-content: center;
+margin-top: 2%;
+margin-bottom: 5%;
+font-size: 30px;
+
+}
+.vetoresDesenho{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+flex-wrap: wrap;
+height: 300px;
+width: 100%;
+
+}
+.vetores{
+height: 90%;
+width: 20%;
+}
+.vetores img{
+height: 200px;
+align-self: center;
+}
+.vetores p{
+font-weight: bolder;
+margin-top: 10%;
+text-align: center;
+}
+
+#plantacao img{
+height: 200px;
+}
+#fazendeiro img{
+height: 200px;
+}
+#sla img{
+height: 200px;
+}
+.simulado{
+height: 250px;
+width: 100%;
+margin-top: 20%;
+background-image: url(https://as2.ftcdn.net/v2/jpg/02/69/11/99/1000_F_269119908_JK9caUWNacWVYivTtDdrfZVEJZ8k7aMH.jpg);
+background-repeat: no-repeat;
+background-size: 100%;
+padding-top: 5.5%;
+}
+.simulado .titulo2{
+font-size: 30px;
+font-weight: lighter;
+display: flex;
+justify-content: center;
+margin-bottom: 2%;
+}
+.simulado p{
+display: flex;
+justify-content: center;
+font-size: 50px;
+color: white;
+margin-top: 0%;
+
+}
+.simulado button{
+margin-top: 3%;
+margin-left: 44%;
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+}
+.bt_men2:hover{
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.falecom{
+height: 650px;
+width: 100%;
+margin-top: 5%;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+text-align: left;
+}
+.falecom input{
+border: 0;
+width: 50%;
+display: flex;
+flex-direction: column;
+font-size: 20px;
+font-weight: bolder;
+background-color: transparent;
+border-bottom: 3px solid green;
+
+}
+.falecom h2{
+font-size: 35px;
+margin-top: 1%;
+margin-bottom: 4%;
+display: flex;
+justify-content: center;
+}
+#inp_men{
+height:250px;
+font-size: 15px;
+text-align: justify;
+
+}
+#inp_email{
+width: 30% ; 
+color: black;
+}
+#inp_nome{
+width: 30%; 
+}
+#assunt{
+height: 50px;
+}
+.button {
+background-color: #4CAF50; /* Green */
+border: none;
+color: white;
+padding: 15px 32px;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+font-size: 16px;
+margin: 4px 2px;
+cursor: pointer;
+-webkit-transition-duration: 0.4s; /* Safari */
+transition-duration: 0.4s;
+}
+.button2:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
