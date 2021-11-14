@@ -7,44 +7,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Melan.cia simulção de valores</title>
   <link rel="stylesheet" href="CSS/Calculadora.css">
+  <link rel="stylesheet" href="./CSS/navbar.css">
   <link rel="shortcut icon" href="assets/melan2.ico" type="image/x-icon">
 </head>
 
 <body>
 
+  <!-- NAVBAR -->
   <div class="cabeca">
-    <h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3>
-    <u class="lista">
-      <li><a href="melanciav2.html">Inicio</a></li>
-      <li><a href="Calculadora.html"><Span>Simulador</Span></a></li>
-      <li><a href="loginmelan.html">Login</a></li>
-      <li><a href="cadastro.html">Cadastro</a></li>
-    </u>
+    <nav class="stroke">
+      <span id="top"></span>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Sobrenos.html">Sobre nós</a></li>
+        <li><a href="Calculadora.html">Calculadora</a></li>
+        <li><a href="#">Nosso time</a></li>
+        <li><a href="cadastro.html">Login / Cadastro</a></li>
+      </ul>
+    </nav>
+    </section>
+  </div>
+  <!-- CALCULADORA -->
+  <div class="calculadora">
+    <div class="bloco" id="bloco1" style="display: block;">
+      <h4>Preço da melancia:</h4> <input type="text" id="inp_preco" placeholder="R$ 00,00">
+      <h2>Quilos de melancia:</h2> <input type="text" id="inp_quilo" placeholder="Quilos...">
+      <button class="bntcomp" onclick="bt_cal()" id="cal" style="display: block;"><span>Calcular</span></button>
+    </div>
+    <div class="bloco" id="div_men" style="display: none;">
+      <h1>Sem os sensores seu lucro seria de R$ <span id="valorperda" style="color: red;"></span> com <b
+          style="color: red;">40</b> de perda no plantio</h1> <br><br>
+      <h1>Com os sensores implantados seu lucro seria de <span id="valorlucro" style="color: green;"></span></h1>
+      <button class="bntcomp" onclick="bt_reset()" id="reset" style="display: none;"><span>Simular
+          novamente</span></button>
+    </div>
+
   </div>
 
-  <div class="calc">
-
-    <div class="titulo">
-      <div class="melan"><span class="mel">Melan</span>.<span class="ci">cia</span>
-      </div>
-
-      <div class="calculadora">
-        <h4>Preço da melancia:</h4> <input type="text" id="inp_preco" placeholder="R$ 00,00">
-        <h4>Quilos de melancia:</h4> <input type="text" id="inp_quilo" placeholder="Quilos...">
-
-
-        <button onclick="bt_cal()" class="butam">
-          Calcular valores
-        </button>
-
-
-        <div id="div_men" class="divmen">
-        </div>
-
-      </div>
-
-
+  <!-- FOOTER -->
+  <div class="footerline">
+    <div class="caixafooter">
+      <h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3>
     </div>
+    <div class="caixafooter">
+      <h1>Mapa do site</h1>
+      <ul>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="Sobrenos.html">Sobre nós</a></li>
+        <li><a href="#">Nosso time</a></li>
+        <li><a href="cadastro.html">Login/cadastro</a></li>
+      </ul>
+    </div>
+    <div class="caixafooter">
+      <h1>Contato</h1>
+      <p>
+        <img src="./assets/icons/location-pointer.png"> Av.Paulista 355, SP 0808-3695, BR <br><br>
+        <img src="./assets/icons/envelope.png"> Melan_cia@gmail.com <br><br>
+        <img src="./assets/icons/phone-receiver-silhouette.png"> 11 25486321 <br><br>
+        <img src="./assets/icons/github.png"> Melan_cia
+      </p>
+    </div>
+  </div>
+  <div class="icons">
+    <p>
+      Melan.cia Copyright © 2021 grupo-5 Company All rights reserved.
+    </p>
+  </div>
+
 </body>
 
 </html>
@@ -52,15 +81,26 @@
   function bt_cal() {
     var kilo = Number(inp_quilo.value);
     var preço = Number(inp_preco.value);
-
-
     var lucro = kilo * preço;
     var perda = lucro * 0.4;
     var ganho = lucro + perda;
 
-    div_men.innerHTML = `Sem os sensores seu lucro seria de R$ ${perda}, com 40% de perda no plantio.
-   <br> <br>
-  Com os sensores implantados seu lucro pode chegar até R$ ${ganho}!!`;
+    bloco1.style.display = "none";
+    div_men.style.display = "block";
+    reset.style.display = "block";
+
+    valorlucro.innerHTML = `${lucro}%`
+    valorperda.innerHTML = `${perda}%`
+    // div_men.innerHTML = `Sem os sensores seu lucro seria de R$ <b style=" color: red;>${perda}</b>, com 40% de perda no
+    // plantio.
+    // <br> <br>
+    // Com os sensores implantados seu lucro pode chegar até R$ <b style="color: green;>${ganho}</b>`;
+  }
+  function bt_reset() {
+    bloco1.style.display = "block";
+    div_men.style.display = "none";
+    reset.style.display = "none";
+    cal.style.display = "block";
   }
 
 
