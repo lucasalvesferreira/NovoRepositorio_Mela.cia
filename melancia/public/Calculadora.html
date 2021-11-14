@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Melan.cia simulção de valores</title>
+  <link rel="stylesheet" href="CSS/Calculadora.css">
+  <link rel="shortcut icon" href="assets/melan2.ico" type="image/x-icon">
+</head>
+
+<body>
+
+  <div class="cabeca">
+    <h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3>
+    <u class="lista">
+      <li><a href="melanciav2.html">Inicio</a></li>
+      <li><a href="Calculadora.html"><Span>Simulador</Span></a></li>
+      <li><a href="loginmelan.html">Login</a></li>
+      <li><a href="cadastro.html">Cadastro</a></li>
+    </u>
+  </div>
+
+  <div class="calc">
+
+    <div class="titulo">
+      <div class="melan"><span class="mel">Melan</span>.<span class="ci">cia</span>
+      </div>
+
+      <div class="calculadora">
+        <h4>Preço da melancia:</h4> <input type="text" id="inp_preco" placeholder="R$ 00,00">
+        <h4>Quilos de melancia:</h4> <input type="text" id="inp_quilo" placeholder="Quilos...">
+
+
+        <button onclick="bt_cal()" class="butam">
+          Calcular valores
+        </button>
+
+
+        <div id="div_men" class="divmen">
+        </div>
+
+      </div>
+
+
+    </div>
+</body>
+
+</html>
+<script>
+  function bt_cal() {
+    var kilo = Number(inp_quilo.value);
+    var preço = Number(inp_preco.value);
+
+
+    var lucro = kilo * preço;
+    var perda = lucro * 0.4;
+    var ganho = lucro + perda;
+
+    div_men.innerHTML = `Sem os sensores seu lucro seria de R$ ${perda}, com 40% de perda no plantio.
+   <br> <br>
+  Com os sensores implantados seu lucro pode chegar até R$ ${ganho}!!`;
+  }
+
+
+
+
+
+
+
+</script>
