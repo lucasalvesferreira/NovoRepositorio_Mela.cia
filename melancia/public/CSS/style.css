@@ -1,103 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-*{
-padding: 0;
-margin: 0;
-font-family:  'Spartan', sans-serif;
-}
-
-/*  Variaveis para as cores*/
-:root{
---red-main: #ff4b4b;
---red-main-darker: #e20501;
---green-main: #61c443;
---green-main-darker: #008000;
-
-
-<<<<<<< HEAD:melancia/CSS/style.css
-=======
-
-
-#mel{
-    margin-top: 35px;
-    margin-left: 20px;
-    font-weight: normal;
-    font-size: 50px; 
-    color: rgb(255, 8, 0);}
-
-    #ciaa{
-        margin-top: 35px;
-        font-weight: normal;
-        font-size: 50px; 
-        color: rgb(16, 163, 16);
-      }
-      
-.cabeca h3{
-font-weight: normal;
-font-size: 50px; 
-}
-.cabeca{
-display: flex;
-justify-content: space-evenly;
->>>>>>> e03214d4aeffdfae29b321912aaebad28b317931:melancia/public/CSS/style.css
-}
-
-
-nav {
-display: flex;
-justify-content: center;
-width: 100%;
-background: #fff; 
-padding-top: 1%;
-padding-bottom: 1%;
-}
-nav ul {
-list-style: none;
-text-align: center;
-}
-nav ul li {
-display: inline-block;
-}
-nav ul li a {
-display: block;
-padding: 15px;
-text-decoration: none;
-color: #000;
-font-weight: 800;
-text-transform: uppercase;
-margin: 0 10px;
-}
-nav ul li a,
-nav ul li a:after,
-nav ul li a:before {
-transition: all .5s;
-}
-nav.stroke ul li a,
-nav.fill ul li a {
-position: relative;
-}
-nav.stroke ul li a:after,
-nav.fill ul li a:after {
-position: absolute;
-bottom: 0;
-left: 0;
-right: 0;
-margin: auto;
-width: 0%;
-content: '.';
-color: transparent;
-background: var(--red-main-darker);
-height: 1px;
-}
-nav.stroke ul li a:hover:after {
-width: 100%;
-}
 
 .firstline{
 height: 550px;
 width: 100%;
 display: flex;
-<<<<<<< HEAD:melancia/CSS/style.css
 justify-content: center;
 margin-top: 5%;
 }
@@ -106,11 +11,7 @@ height: 550px;
 display: flex;
 justify-items: center;
 font-weight: normal;
-background-image: url(../IMGS/escritorio3.jpg);
-=======
-background-image: url(../assets/bruno-emmanuelle-IxigtHjNZF8-unsplash.jpg);
-background-size: 100%;
->>>>>>> e03214d4aeffdfae29b321912aaebad28b317931:melancia/public/CSS/style.css
+background-image: url(../assets/escritorio3.jpg);
 background-repeat: no-repeat;
 background-position: right;
 background-size: 50%;
@@ -129,7 +30,7 @@ height: 550px;
 display: flex;
 align-items: center;
 padding-top: 8%;
-background-image: url(../IMGS/vaso_moedas_planta.jpg );  
+background-image: url(../assets/vaso_moedas_planta.jpg);  
 background-size: 100%;
 background-position-y: 44%;
 }
@@ -140,7 +41,7 @@ margin-top: 5%;
 height: 550px;
 display: flex;
 justify-items: center;
-background-image: url(../IMGS/fundo_pessoas_computador.png);
+background-image: url(../assets/fundo_pessoas_computador.png);
 background-position: 50%;
 background-position-y: 50%;
 background-repeat: no-repeat;
@@ -157,14 +58,7 @@ color: var(--red-main);
 .textofirstline #ciaa{
 color: var(--green-main);
 }
-.footerline #ciaa{
-font-size: 30px;
-color: var(--green-main);
-}
-.footerline #mel{
-font-size: 30px;
-color: var(--red-main);
-}
+
 .textofirstline h3{
 display: flex;
 justify-content: center;
@@ -343,42 +237,3 @@ padding-left:8px;
 opacity: 1;
 right: 10px;
 }
-.footerline {
-display: flex;
-height: 250px;
-padding: 4%;
-
-}
-.caixafooter{
-width: 24%;
-padding-left: 6%;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-}
-.caixafooter h1{
-margin-bottom: 5%;
-margin-bottom: 3%;
-}
-.caixafooter h3{
-margin-bottom: 5%;
-}
-.caixafooter img{
-height: 20px;
-}
-li, a{
-text-decoration: none;
-list-style: none;
-margin-bottom: 3%;
-}
-.icons{
-height: 90px;
-border-top: black 1px solid;
-}
-.icons p{
-display: flex;
-justify-content: center;
-margin-top: 3%;
-}
-
-
