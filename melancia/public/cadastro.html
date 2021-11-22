@@ -52,7 +52,7 @@
       </div>
 
       <div class="form-container sign-in-container">
-        <form action="#">
+        <form id="form_login" method="post" onsubmit="return bt_entrar()">
           <h1>Entrar</h1>
           <!-- <div class="social-container">
           <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -61,9 +61,10 @@
         </div> -->
 
           <span>ou use sua conta</span>
-          <input type="email" placeholder="Email" />
-          <input type="password" placeholder="Senha" />
-          <a href="#">Esqueceu sua senha?</a>
+          
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="senha" placeholder="Senha" />
+            <a href="#">Esqueceu sua senha?</a>
           <button>Entrar</button>
         </form>
       </div>
@@ -172,7 +173,7 @@
         console.log("resposta: ", resposta);
         if (resposta.ok) {
           window.alert("Cadastro realizado com sucesso!");
-          window.location = "Login.html";
+          window.location = "cadastro.html";
           limparFormulario();
         } else {
           throw ("Houve um erro ao tentar realizar o cadastro!");
@@ -183,24 +184,67 @@
 
       return false;
     }
-  </script>
 
-  <!-- 
-   <div class="cad">
-    <h2>Cadastro da empresa</h2>
+    function bt_entrar() {
 
-    <p>Nome</p> <input type="text" id="inp_nome" placeholder="Nome...">
-    <p>CNPJ</p> <input type="text" id="inp_cnpj" placeholder="CNPJ...">
-    <p>Razão da empresa</p> <input type="text" id="inp_razao" placeholder="Nome da empresa...">
-    <p>Email</p> <input type="email" id="inp_email" placeholder="Email...">
-    <p>Senha</p> <input type="text" id="inp_senha1" placeholder="Senha...">
+      var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
 
-    <button onclick="bt_log()" class="bt_cad">
-      Cadastrar!
-    </button>
+      var email = formulario.get("email");
+      var senha = formulario.get("senha");
 
-  </div> -->
+      console.log("FORM LOGIN: ", email);
+      console.log("FORM SENHA: ", senha);
 
+      // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+      if (email == "" || senha == "") {
+          window.alert("Preencha todos os campos para prosseguir!");
+          return false;
+      }
+
+      if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+          window.alert("Ops, e-mail inválido! Verifique e tente novamente.");
+          return false;
+      }
+
+      fetch("/usuarios/autenticar", {
+          method: "POST",
+          body: formulario
+      }).then(function (resposta) {
+          console.log("ESTOU NO THEN DO entrar()!")
+
+          if (resposta.ok) {
+              console.log(resposta);
+
+              resposta.json().then(json => {
+                  console.log(json);
+                  console.log(JSON.stringify(json));
+
+                  sessionStorage.EMAIL_USUARIO = json.email;
+                  sessionStorage.NOME_USUARIO = json.nome;
+                  sessionStorage.ID_USUARIO = json.id;
+
+                  setTimeout(function () {
+                      window.location = "testelulu.html";
+                  }, 1000); // apenas para exibir o loading
+
+              });
+
+          } else {
+
+              console.log("Houve um erro ao tentar realizar o login!");
+
+              resposta.text().then(texto => {
+                  console.error(texto);
+              });
+          }
+
+      }).catch(function (erro) {
+          console.log(erro);
+      })
+
+      return false;
+  }
+</script>
 </body>
 
 </html>
