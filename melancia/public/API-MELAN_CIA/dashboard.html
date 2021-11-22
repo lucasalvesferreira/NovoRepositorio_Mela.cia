@@ -1,12 +1,12 @@
 
-<!doctype html>
+<!--<!doctype html>
 <html>
 
 <head>
 	<title>Line Chart</title>
-	<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>-->
+	<!-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
-	<!-- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> -->
+	<!- <script src="http://www.chartjs.org/samples/latest/utils.js"></script> 
 	<style>
 		canvas {
 			-moz-user-select: none;
@@ -16,7 +16,44 @@
 	</style>
 </head>
 
+<body>-->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="../assets/icons/melan2.ico" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+  <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+  <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+  <link rel="stylesheet" href="../CSS/Dashboard.css">
+  <title>Dashboard </title>
+</head>
+
 <body>
+  <div class="header">
+    <a href="../index.html">
+      <h1><span class="mel">Melan</span><span class="ciaa">.cia</span></h1>
+    </a>
+    <nav class="stroke">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../Sobrenos.html">Sobre nós</a></li>
+        <li><a href="../Calculadora.html">Calculadora</a></li>
+        <li><a href="../cadastro.html">Login / Cadastro</a></li>
+      </ul>
+    </nav>
+    </section>
+  </div>
+
+  <div class="container">
+    <div class="bar">
+      <h2>Bem vindo(a) Batatinha</h2>
+      <p>Aqui ficam os seus gráficos com os dados de suas planta
+        es e algumas informações sobre cada uma delas!</p>
+    </div>
 	<div>
 		<h1>Sensor DHT 11 - Umidade</h1>
 			<section>
@@ -47,6 +84,7 @@
 			<canvas id="chart4"></canvas>
 		</section>
 	</div>
+	
 	
 	<script>
 

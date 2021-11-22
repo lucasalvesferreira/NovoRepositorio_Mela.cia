@@ -74,13 +74,13 @@
           <div class="overlay-panel overlay-left">
             <h1>Bem vindo de volta!</h1>
             <p>Para se manter conectado conosco, faça o login com suas informações pessoais.</p>
-            <button class="ghost" id="signIn">Entrar</button>
+            <button class="ghost" onclick="entrar()">Entrar</button>
           </div>
 
           <div class="overlay-panel overlay-right">
             <h1>Olá, seja bem vindo!</h1>
             <p>Insira seus dados pessoais e comece a jornada conosco.</p>
-            <button class="ghost" id="signUp">Inscrever-se</button>
+            <button class="ghost" onclick="cadastrar()">Inscrever-se</button>
           </div>
         </div>
       </div>
@@ -114,23 +114,22 @@
   <div class="icons">
     <p>
       Melan.cia Copyright © 2021 grupo-5 Company All rights reserved.
+      <button class="ttttt">TESTE</button>
     </p>
   </div>
 
+
   <script>
 
-    const signUpButton = document.getElementById('signUp');
-    const signInButton = document.getElementById('signIn');
     const container = document.getElementById('container');
 
-    signUpButton.addEventListener('click', () => {
+    function cadastrar() {
       container.classList.add("right-panel-active");
-    });
+    }
 
-    signInButton.addEventListener('click', () => {
+    function entrar() {
       container.classList.remove("right-panel-active");
-    });
-
+    }
 
     function limparFormulario() {
       document.getElementById("form_cadastro").reset();
@@ -224,7 +223,7 @@
                   sessionStorage.ID_USUARIO = json.id;
 
                   setTimeout(function () {
-                      window.location = "testelulu.html";
+                      window.location = "./API-MELAN_CIA/dashboard.html";
                   }, 1000); // apenas para exibir o loading
 
               });

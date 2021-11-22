@@ -139,7 +139,7 @@ justify-content: center;
 }
 
 .bar{
-    height: 100vh;
+    height: 200vh;
     width: 20vw;
     background-color: rgb(163, 201, 170);
     flex-direction: column;
