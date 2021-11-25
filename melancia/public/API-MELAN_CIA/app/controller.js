@@ -34,15 +34,11 @@ router.get('/', (request, response, next) => {
 router.post('/sendData', (request, response) => {
 
     var umidade  =  ArduinoDataTemp.List[0].data;
-    var temperatura_dht11 = ArduinoDataTemp.List[1].data;
-    var luminosidade = ArduinoDataTemp.List[2].data;
     var temperatura_lm35 = ArduinoDataTemp.List[3].data;
 
     umidade = umidade[umidade.length-1];
-    temperatura_dht11 = temperatura_dht11[temperatura_dht11.length-1];
-    luminosidade = luminosidade[luminosidade.length-1];
     temperatura_lm35 = temperatura_lm35[temperatura_lm35.length-1];
-    var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35) VALUES (null, ${umidade}, ${temperatura_lm35})`;
+    var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35) VALUES (null, ${umidade}, ${temperatura_lm35},)`;
 
     db.query(sql,  function(err, result) {
         if (err) throw err;
