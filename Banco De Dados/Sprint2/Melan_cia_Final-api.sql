@@ -188,6 +188,8 @@ insert into relatorio values
 		check (statusSens = 'ativo' 
 					or statusSens = 'inativo'
 							or statusSens = 'manutenção'),
+		umidade double,
+		temperatura_lm35 double,
 		fkrelatorio int,
 		constraint fk_relatorioSen
 		foreign key  (fkrelatorio) references relatorio(idRel)
@@ -233,7 +235,7 @@ insert into sensor values
 		fkSensor int,
 		constraint fk_sensorBloco
 		foreign key  (fkSensor) references sensor(idSensor));
-    
+   
 -- Inserindo ids na tabela Bloco
     insert into Bloco values
 		(01,null,null),
@@ -278,10 +280,3 @@ insert into sensor values
     Select * from Bloco;
 	DESC Bloco;
     
-
-create table medidas(
-idMedidas int primary key auto_increment,
-umidade double,
-temperatura_lm35 double);
-
-select * from medidas;
