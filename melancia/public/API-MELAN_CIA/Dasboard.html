@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/icons/melan2.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+    <link rel="stylesheet" href="../CSS/Dashboard.css">
+    <title>Dashboard</title>
+  </head>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <div class="cabeca">
+    <nav class="stroke">
+      <span id="top"></span>
+      <ul>
+        <li><a href="Dasboard.html">Gráficos</a></li>
+        <li><a href="#">Perfil</a></li>
+        <li><a href="#">?</a></li>
+        <li><a href="#">?</a></li>
+        <li><a href="../index.html">Sair</a></li>
+      </ul>
+    </nav>
+    </section>
+  </div>
+  <div class="container">
+    <div class="divmenu">
+
+      <div class="variatp">
+        <P class="p">Máxima temperatura</P>
+      </div>
+
+      <div class="variaum">
+        <P class="p">Mínima temperatura</P>
+      </div>
+
+      <div class="variamed">
+        <P class="p">Média</P>
+      </div>
+    </div>
+  
+    <div class="teste">
+      <div class="graficos">
+        <div class="content">
+          <section>
+            <h2>Média: <label id='average'>0.00</label></h2>
+          </section>
+          <section style="width:100%">
+            <canvas id="chart"></canvas>
+          </section>
+        </div>
+
+        <!-- <h1>Sensor DHT 11 - Temperatura</h1>
+          <section>
+            <h2>Média: <label id="average2">0.00</label></h2>
+          </section>
+          <section style="width: 100%;">
+            <canvas id="chart2"></canvas>
+          </section>
+          <h1>Luminosidade</h1>
+          <section>
+            <h2>Média: <label id="average3">0.00</label></h2>
+          </section>
+          <section style="width: 100%;">
+            <canvas id="chart3"></canvas>
+          </section> -->
+        <div class="content">
+          <section>
+            <h2>Média: <label id="average4">0.00</label></h2>
+          </section>
+          <section style="width: 100%;">
+            <canvas id="chart4"></canvas>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- /********************* SEGUNDA COLUNA DE GRÁFICOS
+    -->
+  <!-- <div class="graficos">
+      <div style="margin-left: 8%;" class="content">
+        <section>
+          <h2>Média: <label id='average'>0.00</label></h2>
+        </section>
+        <section style="width:100%">
+          <canvas id="chart"></canvas>
+        </section>
+      </div>
+      <div style="margin-left: 8%;" class="content">
+        <section>
+          <h2>Média: <label id="average4">0.00</label></h2>
+        </section>
+        <section style="width: 100%;">
+          <canvas id="chart4"></canvas>
+        </section>
+      </div>
+    </div>
+  </div> -->
+  <!-- FOOTER -->
+  <div class="footerline">
+    <div class="caixafooter">
+      <h3><span id="mel">Melan</span>.<span id="ciaa">cia</span></h3>
+    </div>
+    <div class="caixafooter">
+      <h1>Mapa do site</h1>
+      <ul>
+        <li><a href="Sobrenos.html">Sobre nós</a></li>
+        <li><a href="Calculadora.html">Calculadora</a></li>
+        <li><a href="#">Nosso time</a></li>
+        <li><a href="cadastro.html">Login/cadastro</a></li>
+      </ul>
+    </div>
+    <div class="caixafooter">
+      <h1>Contato</h1>
+      <p>
+        <img src="../assets/icons/location-pointer.png"> Av.Paulista 355, SP 0808-3695, BR <br><br>
+        <img src="../assets/icons/envelope.png"> Melan_cia@gmail.com <br><br>
+        <img src="../assets/icons/phone-receiver-silhouette.png"> 11 25486321 <br><br>
+        <img src="../assets/icons/github.png"> Melan_cia
+      </p>
+    </div>
+  </div>
+  <div class="icons">
+    <p>
+      Melan.cia Copyright © 2021 grupo-5 Company All rights reserved.
+    </p>
+  </div>
+  <a href="#top">
+    <div style="height: 20px; width: 20px; background-color: greenyellow;" id="b"></div>
+  </a>
+</body>
+
+</html>
+
+<script>
+  var context = document.getElementById("chart").getContext("2d");
+  context.canvas.width = 1000;
+  context.canvas.height = 300;
+
+  var configuration = {
+    type: 'line',
+    data: {
+      datasets: [{
+        label: "Sensor 1 - Umidade",
+        type: 'line',
+        borderColor: ['#45b3e7'],
+        backgroundColor: ['#89cff0']
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          distribution: 'series',
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Umidade'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      animation: {
+        duration: 0
+      }
+    }
+  };
+
+  var chart = new Chart(context, configuration);
+
+  //Função para obter os dados de temperatura do server
+  //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+  //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+  //hora de montar/atualizar o gráfico
+  this.lastIndexTemp = 0;
+  this.time = 0;
+
+  function get_data() {
+
+    var http = new XMLHttpRequest();
+    // http.open('GET', 'http://localhost:3000/api', false);
+    // http.send(null);
+
+    var obj = JSON.parse(http.responseText);
+    //Assinar ao primero index
+    obj = obj[0];
+    if (obj.data.length == 0) {
+      return;
+    }
+
+    var _lastIndexTemp = this.lastIndexTemp;
+    this.lastIndexTemp = obj.data.length;
+    listTemp = obj.data.slice(_lastIndexTemp);
+
+    listTemp.forEach(data => {
+      //Máximo de 60 itens exibidos no gráfico
+      if (chart.data.labels.length == 10 && chart.data.datasets[0].data.length == 10) {
+        chart.data.labels.shift();
+        chart.data.datasets[0].data.shift();
+      }
+
+      chart.data.labels.push(this.time++);
+      chart.data.datasets[0].data.push(parseFloat(data));
+      chart.update();
+    });
+
+    document.getElementById('average').textContent = obj.average;
+  }
+
+
+  // var context2 = document.getElementById("chart2").getContext("2d");
+  // context2.canvas.width = 1000;
+  // context2.canvas.height = 300;
+
+  // var configuration2 = {
+  // 	type: 'line',
+  // 	data: {
+  // 		datasets: [{
+  // 			label: "Temperatura",
+  // 			type: 'line',
+  // 			borderColor: ['#ff3232'],
+  // 			backgroundColor: ['#ff7f7f']
+  // 		}]
+  // 	},
+  // 	options: {
+  // 		scales: {
+  // 			xAxes: [{
+  // 				distribution: 'series',
+  //                 ticks: {
+  //                     beginAtZero:true
+  //                 }
+  // 			}],
+  // 			yAxes: [{
+  // 				scaleLabel: {
+  // 					display: true,
+  // 					labelString: 'Luminosidade'
+  //                 },
+  //                 ticks: {
+  //                     beginAtZero:true
+  //                 }
+  // 			}]
+  // 		},
+  // 		animation: {
+  // 			duration: 0
+  // 		}
+  // 	}
+  // };
+
+  // var chart2 = new Chart(context2, configuration2);
+
+  // //Função para obter os dados de temperatura do server
+  // //Seria mais interessante fazer isso com WebSocket, porém para fins academicos, os dados serão atualizados via HTTP
+
+  // //Esse atributo dentro do contexto serve para saber qual foi o último índice processado, assim eliminado os outros elementos na
+  // //hora de montar/atualizar o gráfico
+  // this.lastIndexTemp2 = 0;
+  // this.time2 = 0;
+
+  // function get_data2(){
+
+  //     var http = new XMLHttpRequest();
+  //     http.open('GET', 'http://localhost:3000/api', false);
+  //     http.send(null);        
+
+  //     var obj2 = JSON.parse(http.responseText);
+  // 	//Assinar ao segundo index
+  // 	obj2 = obj2[1];
+  //     if (obj2.data.length == 0){
+  //         return;
+  //     }
+
+  //     var _lastIndexTemp2 = this.lastIndexTemp2;
+  //     this.lastIndexTemp2 = obj2.data.length;
+  //     listTemp2 = obj2.data.slice(_lastIndexTemp2);
+
+  //     listTemp2.forEach(data => {
+  //         //Máximo de 60 itens exibidos no gráfico
+  //         if (chart2.data.labels.length == 10 && chart2.data.datasets[0].data.length == 10){
+  //             chart2.data.labels.shift();
+  //             chart2.data.datasets[0].data.shift();
+  //         }
+
+  //         chart2.data.labels.push(this.time++);
+  //         chart2.data.datasets[0].data.push(parseFloat(data));
+  //         chart2.update();
+  // 	});
+
+  // 	document.getElementById('average2').textContent = obj2.average;
+  // }
+
+  // var context3 = document.getElementById("chart3").getContext("2d");
+  // context3.canvas.width = 1000;
+  // context3.canvas.height = 300;
+
+  // var configuration3 = {
+  // 	type: 'line',
+  // 	data: {
+  // 		datasets: [{
+  // 			label: "Luminosidade",
+  // 			type: 'line',
+  // 			borderColor: ['#ffd902'],
+  // 			backgroundColor: ['#ffe135']
+  // 		}]
+  // 	},
+  // 	options: {
+  // 		scales: {
+  // 			xAxes: [{
+  // 				distribution: 'series',
+  //                 ticks: {
+  //                     beginAtZero:true
+  //                 }
+  // 			}],
+  // 			yAxes: [{
+  // 				scaleLabel: {
+  // 					display: true,
+  // 					labelString: 'Luminosidade'
+  //                 },
+  //                 ticks: {
+  //                     beginAtZero:true
+  //                 }
+  // 			}]
+  // 		},
+  // 		animation: {
+  // 			duration: 0
+  // 		}
+  // 	}
+  // };
+
+  // var chart3 = new Chart(context3, configuration3);
+
+  // this.lastIndexTemp3 = 0;
+  // this.time3 = 0;
+
+
+  // function get_data3(){
+
+  // 	var http = new XMLHttpRequest();
+  // 	http.open('GET', 'http://localhost:3000/api', false);
+  // 	http.send(null);        
+
+  // 	var obj = JSON.parse(http.responseText);
+  // 	//Assinar ao segundo index
+  // 	obj = obj[2];
+  // 	if (obj.data.length == 0){
+  // 		return;
+  // 	}
+
+  // 	var _lastIndexTemp3 = this.lastIndexTemp3;
+  // 	this.lastIndexTemp3 = obj.data.length;
+  // 	listTemp3 = obj.data.slice(_lastIndexTemp3);
+
+  // 	listTemp3.forEach(data => {
+  // 		//Máximo de 60 itens exibidos no gráfico
+  // 		if (chart3.data.labels.length == 10 && chart3.data.datasets[0].data.length == 10){
+  // 			chart3.data.labels.shift();
+  // 			chart3.data.datasets[0].data.shift();
+  // 		}
+
+  // 		chart3.data.labels.push(this.time++);
+  // 		chart3.data.datasets[0].data.push(parseFloat(data));
+  // 		chart3.update();
+  // 	});
+
+  // 	document.getElementById('average3').textContent = obj.average;
+  // 	}
+
+
+
+  var configuration4 = {
+    type: 'line',
+    data: {
+      datasets: [{
+        label: "Sensor 2 - Temperatura",
+        type: 'line',
+        borderColor: ['#581845'],
+        backgroundColor: ['#581845']
+      }]
+    },
+    options: {
+      scales: {
+        xAxes: [{
+          distribution: 'series',
+          ticks: {
+            beginAtZero: true
+          }
+        }],
+        yAxes: [{
+          scaleLabel: {
+            display: true,
+            labelString: 'Temperatura'
+          },
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      animation: {
+        duration: 0
+      }
+    }
+  };
+
+  var context4 = document.getElementById("chart4").getContext("2d");
+  context4.canvas.width = 1000;
+  context4.canvas.height = 300;
+
+  var chart4 = new Chart(context4, configuration4);
+
+  this.lastIndexTemp4 = 0;
+  this.time4 = 0;
+
+
+  function get_data4() {
+
+    var http = new XMLHttpRequest();
+    // http.open('GET', 'http://localhost:3000/api', false);
+    // http.send(null);
+
+    var obj = JSON.parse(http.responseText);
+    //Assinar ao segundo index
+    console.log(obj)
+    obj = obj[3];
+    if (obj.data.length == 0) {
+      return;
+    }
+
+    var _lastIndexTemp4 = this.lastIndexTemp4;
+    this.lastIndexTemp4 = obj.data.length;
+    listTemp4 = obj.data.slice(_lastIndexTemp4);
+
+    listTemp4.forEach(data => {
+      //Máximo de 60 itens exibidos no gráfico
+      if (chart4.data.labels.length == 10 && chart4.data.datasets[0].data.length == 10) {
+        chart4.data.labels.shift();
+        chart4.data.datasets[0].data.shift();
+      }
+
+      chart4.data.labels.push(this.time++);
+      chart4.data.datasets[0].data.push(parseFloat(data));
+      chart4.update();
+    });
+
+    document.getElementById('average4').textContent = obj.average;
+  }
+
+  function sendSensorsData() {
+    var http = new XMLHttpRequest();
+    http.open('POST', 'http://localhost:3000/api/sendData', false);
+    http.send(null);
+  }
+
+  setInterval(() => {
+    get_data();
+    // get_data2();
+    // get_data3();
+    get_data4();
+    sendSensorsData();
+  }, 1000);
+</script>
