@@ -18,7 +18,7 @@
 
 <body>
   <!-- NAVBAR -->
-  <div class="cabeca">
+  <!-- <div class="cabeca">
     <nav class="stroke">
       <span id="top"></span>
       <ul>
@@ -30,23 +30,36 @@
       </ul>
     </nav>
     </section>
-  </div>
-  <div class="container">
-    <div class="divmenu">
+  </div> -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
 
-      <div class="variatp">
-        <P class="p">Máxima temperatura</P>
-      </div>
+      <span></span>
+      <span></span>
+      <span></span>
 
-      <div class="variaum">
-        <P class="p">Mínima temperatura</P>
-      </div>
-
-      <div class="variamed">
-        <P class="p">Média</P>
-      </div>
+      <ul id="menu">
+        <a href="Dasboard.html">
+          <li>Inicio</li>
+        </a>
+        <a href="#">
+          <li>Gráficos</li>
+        </a>
+        <a href="#">
+          <li>Perfil</li>
+        </a>
+        <a href="../Suporte.html">
+          <li>Suporte</li>
+        </a>
+        <a href="../index.html">
+          <li>Sair</li>
+        </a>
+      </ul>
     </div>
-  
+  </nav>
+
+  <div class="container">
     <div class="teste">
       <div class="graficos">
         <div class="content">
@@ -80,9 +93,9 @@
             <canvas id="chart4"></canvas>
           </section>
         </div>
+
       </div>
     </div>
-  </div>
   </div>
   <!-- /********************* SEGUNDA COLUNA DE GRÁFICOS
     -->

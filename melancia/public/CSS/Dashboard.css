@@ -17,56 +17,25 @@ font-family:  'Spartan', sans-serif;
 height: 550px;
 display: flex;
 align-items: center;
-justify-content: center;
 padding-left: 4%;
 }
 .graficos{
-width: 45vw; 
 display: flex;
 flex-direction: column;
+margin-left: 25%;
 }
 .container{
 height: 750px;
 width: 100%;
-background-color: rgb(201, 144, 255);
 display: flex;
-justify-content: center;
 }
 
 .divmenu{
 height: 280px;
-width: 80%;
+width: 25%;
 background-color: aquamarine;
 display: flex;
-margin-top: 3%;
-border-radius: 15px;
-}
-.variatp{
-height: 120px;
-width: 29%;
-background-color: cadetblue;
-display: flex;
-align-self: center;
-margin-left: 3%;
-border-radius: 15px;
-}
-.variaum{
-height: 120px;
-width: 29%;
-background-color: cadetblue;
-display: flex;
-align-self: center;
-margin-left: 3%;
-border-radius: 15px;
-}
-
-.variamed{
-height: 120px;
-width: 29%;
-background-color: cadetblue;
-display: flex;
-align-self: center;
-margin-left: 3%;
+margin-top: 9%;
 border-radius: 15px;
 }
 
@@ -81,19 +50,146 @@ display: flex;
 flex-direction:column;
 }
 
-
-
 .p{
 display: flex;
 text-align: center;
 align-self: center;
 }
 
+/* ALINHAMENTO DO MENU */
+#menuToggle
+{
+display: block;
+position: fixed;
+top: 50px;
+left: 50px;
+float: left;
+}
+
+/* DECORAÇÃO DO LINK */
+#menuToggle a
+{
+text-decoration: none;
+color: #232323;
+transition: color 0.3s ease;
+}
+
+/* ANIMAÇÃO QUANDO PASSA O MOUSE */
+#menuToggle a:hover
+{
+color: var(--red-main-darker);
+}
+
+
+/* MENU */
+#menuToggle input
+{
+display: block;
+width: 40px;
+height: 32px;
+position: absolute;
+cursor: pointer;
+opacity: 0; /* ESCONDE A CHECKBOX*/
+z-index: 2; /* COLOCA AS SPANS */
+}
+
+/*
+O MENU QUE SÃO AS SPANS
+*/
+#menuToggle span
+{
+display: block;
+width: 33px;
+height: 4px;
+margin-bottom: 5px;
+position: relative;
+background: var(--red-main);
+border-radius: 3px;
+z-index: 1;
+transform-origin: 4px 0px;
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+            opacity 0.55s ease;
+}
+
+
+
+/* ALINHAMENTO DA ANIMAÇÃO X */
+#menuToggle span:nth-last-child(2)
+{
+transform-origin: 0% 100%;
+}
+
+/* 
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span
+{
+opacity: 1;
+transform: rotate(45deg) translate(-2px, -1px);
+background: var(--green-main-darker);
+}
+
+/*
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+opacity: 0;
+transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* ALINHAMENTO DA DIV */
+#menu
+{
+width: 300px;
+height: 500px;
+margin: -100px 0 0 -50px;
+padding: 50px;
+padding-top: 125px;
+background: whitesmoke;
+list-style-type: none;
+background-image: url(../assets/watermelon-face-26061.png);
+background-repeat: no-repeat;
+background-size: 80%;
+background-position: bottom;
+background-position-x: 50%;
+background-position-y: 100%;
+
+/* ANIMAÇÃO VOLTA MAIS LENTA */
+-webkit-font-smoothing: antialiased;
+/* ANIMAÇÃO IDA E VOLTA*/
+transform: translate(-100%, 0);
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+/* ALINHAMENTO DA LETRAS */
+#menu li
+{
+padding: 10px 0;
+font-size: 25px;
+font-weight: normal;
+}
+
+/* PUXA A DIV PARA VER O MENU */
+#menuToggle input:checked ~ ul
+{
+transform: none;
+}
+
 
 a{
 color: #000;
 }
-nav {
+/* nav {
 display: flex;
 justify-content: center;
 width: 100%;
@@ -141,7 +237,7 @@ height: 1px;
 }
 nav.stroke ul li a:hover:after {
 width: 100%;
-}
+} */
 .footerline #ciaa{
 font-size: 30px;
 color: var(--green-main);
