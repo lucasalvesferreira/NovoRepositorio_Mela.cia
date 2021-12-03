@@ -180,6 +180,14 @@ insert into relatorio values
 		Select * from relatorio;
 		DESC relatorio;
 -- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Criando Tabela Medidas
+	create table medidas(
+		idMedidas int primary key auto_increment,
+		umidade double,
+		temperatura_lm35 double, 
+		hr_medida DATETIME);
+        
+-- -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Criando Tabela Sensor
 	Create table sensor (
 		idSensor int primary key auto_increment,
@@ -188,13 +196,16 @@ insert into relatorio values
 		check (statusSens = 'ativo' 
 					or statusSens = 'inativo'
 							or statusSens = 'manutenção'),
-		umidade double,
-		temperatura_lm35 double,
 		fkrelatorio int,
+        fkmedidas int,
 		constraint fk_relatorioSen
-		foreign key  (fkrelatorio) references relatorio(idRel)
+		foreign key  (fkrelatorio) references relatorio(idRel),
+        constraint fk_Medidas
+        foreign key (fkmedidas) references medidas(idMedidas)
 		) auto_increment =1000 ; 
 
+ 
+	
 -- Inserindo dados na tabela Sensor
 insert into sensor values
 	(null , 'Sensor Alpha' , 'ativo',null),
@@ -279,4 +290,4 @@ insert into sensor values
     
     Select * from Bloco;
 	DESC Bloco;
-    
+   

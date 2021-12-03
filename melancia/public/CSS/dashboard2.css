@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+padding: 0;
+margin: 0;
+font-family:  'Spartan', sans-serif;
+}
+
+/*  Variaveis para as cores*/
+:root{
+--red-main: #ff4b4b;
+--red-main-darker: #e20501;
+--green-main: #61c443;
+--green-main-darker: #008000;
+}
+
+
+/* ALINHAMENTO DO MENU */
+#menuToggle
+{
+display: block;
+position: fixed;
+top: 20px;
+left: 50px;
+float: left;
+}
+
+/* DECORAÇÃO DO LINK */
+#menuToggle a
+{
+text-decoration: none;
+color:var(--white-main);
+transition: color 0.3s ease;
+}
+
+/* ANIMAÇÃO QUANDO PASSA O MOUSE */
+#menuToggle a:hover
+{
+color:var(--red-main-darker);
+}
+
+
+/* MENU */
+#menuToggle input
+{
+display: block;
+width: 40px;
+height: 32px;
+position: absolute;
+cursor: pointer;
+opacity: 0; /* ESCONDE A CHECKBOX*/
+z-index: 2; /* COLOCA AS SPANS */
+
+}
+
+/*
+O MENU QUE SÃO AS SPANS
+*/
+#menuToggle span
+{
+display: block;
+width: 33px;
+height: 4px;
+margin-bottom: 5px;
+position: relative;
+background:var(--red-main-darker);
+border-radius: 3px;
+z-index: 1;
+transform-origin: 4px 0px;
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+opacity 0.55s ease;
+}
+
+
+
+/* ALINHAMENTO DA ANIMAÇÃO X */
+#menuToggle span:nth-last-child(2)
+{
+transform-origin: 0% 100%;
+}
+
+/* 
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span
+{
+opacity: 1;
+transform: rotate(45deg) translate(-2px, -1px);
+background-color : var(--green-main-darker);
+}
+
+/*
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span:nth-last-child(3)
+{
+opacity: 0;
+transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/*
+ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
+*/
+#menuToggle input:checked ~ span:nth-last-child(2)
+{
+transform: rotate(-45deg) translate(0, -1px);
+}
+
+/* ALINHAMENTO DA DIV */
+#menu
+{
+width: 300px;
+height: 550px;
+margin: -100px 0 0 -50px;
+padding: 50px;
+padding-top: 125px;
+background: white;
+list-style-type: none;
+background-image: url(../assets/watermelon-face-26061.png);
+background-repeat: no-repeat;
+background-size: 50%;
+background-position:bottom;
+background-position-x: 25%;
+
+/* ANIMAÇÃO VOLTA MAIS LENTA */
+-webkit-font-smoothing: antialiased;
+/* ANIMAÇÃO IDA E VOLTA*/
+transform: translate(-100%, 0);
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+/* ALINHAMENTO DA LETRAS */
+#menu li
+{
+margin-top: 15%;
+font-size: 35px;
+font-weight: normal;
+}
+
+/* PUXA A DIV PARA VER O MENU */
+#menuToggle input:checked ~ ul
+{
+transform: none;
+}
+
+a{
+color: #000;
+}
+
+.dash_space{
+  height: 550px;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 19%;
+  margin-top: 5%;
+}
+
+#grafico_1{
+
+  width: 50%;
+}
+
+#grafico_2{
+  
+  width: 50%;
+}
+
+#grafico_3{
+  width: 50%;
+}
+
+#grafico_4{
+  margin-left: 2%;
+  width: 48%;
+}
+
+/*GRAFICO*/
+.grafico_linha_azul{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  
+}
+
+/* linhas */
+
+.line_linha_azul{
+  display: none;
+  right: 100%;
+}
+
+.dash_spaces{
+  display: flex;
+}
+
+.vl {
+  border-left: 5px solid #6E95F9;
+  height: 475px;
+}
+
+.v2 {
+  color: var(--white-color);
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: right;
+  padding-right: 8px;
+  list-style-type: style;
+}
+
+.a_line_linha_azul{
+  text-decoration: none;
+  color: var(--white-color);
+  font-size: 17.4px;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 2.5;
+}
+
+.a_line_linha_azul:hover{
+  color: var(--green-strong);
+  transition: 0.5s;
+}
