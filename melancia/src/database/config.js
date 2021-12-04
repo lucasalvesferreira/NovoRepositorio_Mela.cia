@@ -17,14 +17,21 @@ var sqlServerConfig = {
     }
 }
 
-// CONEXÃO DO MYSQL WORKBENCH (LOCAL)
+// CONEXÃO DO MYSQL WORKBENCH (LOCAL)- LUCAS
+//var mySqlConfig = {
+  //  host     : 'localhost',
+  //  port     : '3306',
+  //  user     : 'root',
+  //  password : 'Pikachu22@',
+  //  database : 'melancia'};
+  
 var mySqlConfig = {
     host     : 'localhost',
     port     : '3306',
     user     : 'root',
-    password : 'Pikachu22@',
+    password : '',
     database : 'melancia'};
-
+  
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {

@@ -16,24 +16,26 @@ create table Empresa(
 
     create table fazenda (
 			idFazenda int primary key auto_increment,
-            hectares int,
-			fkEmpresa int,
+          	estado varchar (45),
+			cidade varchar (45),
+			logradouro varchar (45),
+			numero int,
+            complemento VARCHAR(50),
+            qtd_canteiros INT,
+            fkEmpresa int,
+            fkCanteiros int,
 			constraint fk_empresaFaz
 			foreign key (fkEmpresa) references Empresa(idEmpresa)
-			);
+	);
+	create table canteiro (
+			idCanteiro int primary key auto_increment,
+			fkFazenda int,
+			constraint fk_FazendaCant
+			foreign key  (fkFazenda) references Fazenda(idFazenda)
+			);          
+	ALTER TABLE fazenda ADD FOREIGN KEY (fkCanteiros) REFERENCES canteiro(idCanteiro);
             
             
-            
-            
-            create table endereco (
-            idEndereco int primary key auto_increment,            
-			estado varchar (45),
-			cidade varchar (45),
-			rua varchar (45),
-			numero int,
-            fkFazenda int,
-            foreign key (fkFazenda) references fazenda(idFazenda)
-            ) auto_increment = 1100;
 
 	
 create table funcionario (
@@ -43,19 +45,15 @@ create table funcionario (
 	emailFunc varchar (50),
 	telefone varchar (15),
     fkFazenda int,
+    fkCanteiro INT,
     constraint fk_FazendaFun
-    foreign key  (fkFazenda) references Fazenda(idFazenda)
+    foreign key  (fkFazenda) references Fazenda(idFazenda),
+    constraint fk_CanteiroFun
+    foreign key  (fkCanteiro) references canteiro(idCanteiro)
 	);
 
 
-create table canteiro (
-	idCanteiro int primary key auto_increment,
-	linha int,
-    qtd_melan INT,
-    fkFazenda int,
-    constraint fk_FazendaCant
-    foreign key  (fkFazenda) references Fazenda(idFazenda)
-	);
+
 select * from canteiro;
 select e.razaoEmp, sum(linha) AS 'quantidade de linhas do canteiro' FROM empresa as e JOIN canteiro as c on e.idEmpresa = c.fkFazenda where fkFazenda = 1;
 
