@@ -55,7 +55,7 @@ create table funcionario (
 
 
 select * from canteiro;
-select e.razaoEmp, sum(linha) AS 'quantidade de linhas do canteiro' FROM empresa as e JOIN canteiro as c on e.idEmpresa = c.fkFazenda where fkFazenda = 1;
+-- select e.razaoEmp, sum(linha) AS 'quantidade de linhas do canteiro' FROM empresa as e JOIN canteiro as c on e.idEmpresa = c.fkFazenda where fkFazenda = 1;
 
 create table relatorio (
 	idRel int primary key auto_increment,
