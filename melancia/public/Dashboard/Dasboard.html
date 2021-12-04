@@ -12,11 +12,12 @@
     <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
     <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
     <link rel="stylesheet" href="../CSS/Dashboard.css">
+    <script src="../assets/js/funcoes.js"></script>
     <title>Dashboard</title>
   </head>
 </head>
 
-<body>
+<body onload="validarSessao()">
   <!-- NAVBAR -->
   <!-- <div class="cabeca">
     <nav class="stroke">
@@ -40,8 +41,19 @@
       <span></span>
 
       <ul id="menu">
+        Bem vindo a <b id="sp_empresa"></b><br>
+        Senhor(a) <b id="sp_resp"></b><br>
         <a href="Dasboard.html">
           <li>Inicio</li>
+        </a>
+        <a href="../cadCant.html">
+          <li>Cadastrar Canteiro</li>
+        </a>
+        <a href="../cadFaz.html">
+          <li>Cadastrar Fazenda</li>
+        </a>
+        <a href="#">
+          <li>Gráficos</li>
         </a>
         <a href="#">
           <li>Gráficos</li>
@@ -155,6 +167,13 @@
 </html>
 
 <script>
+  var email = sessionStorage.EMAIL_USUARIO;
+  var razaoEmp = sessionStorage.razaoEmp_USUARIO;
+  var responsavel = sessionStorage.responsavel_USUARIO;
+  var id = sessionStorage.ID_EMPRESA;
+
+  sp_empresa.innerHTML = razaoEmp;
+  sp_resp.innerHTML = responsavel;
   var context = document.getElementById("chart").getContext("2d");
   context.canvas.width = 1000;
   context.canvas.height = 300;

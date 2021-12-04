@@ -97,10 +97,45 @@ function cadastrar(req, res) {
         );
     }
 }
+function cadastrarCanteiro(req, res) {
+    var linha = req.body.linha;
+    var qtd_melan = req.body.qtd_melan;
+    var idEmpresa = req.params.idEmpresa;
+
+
+    
+
+    if (linha == undefined) {
+        res.status(400).send("Seu linha está undefined!");
+    } else if (qtd_melan == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    }else if (idEmpresa == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+    }
+     else {
+        usuarioModel.cadastrarCanteiro(linha, qtd_melan, idEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    }
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
     listar,   
-    testar
+    testar,
+    cadastrarCanteiro
 }

@@ -1,7 +1,7 @@
 /*  Criando o banco de dados Melan.cia */
 
-Create database Melancia3;
-	Use Melancia3;
+Create database Melancia;
+	Use Melancia;
 
 create table Empresa(
 	idEmpresa int primary key auto_increment,
@@ -50,12 +50,14 @@ create table funcionario (
 
 create table canteiro (
 	idCanteiro int primary key auto_increment,
-	posicao varchar (45),
+	linha int,
+    qtd_melan INT,
     fkFazenda int,
     constraint fk_FazendaCant
     foreign key  (fkFazenda) references Fazenda(idFazenda)
 	);
-
+select * from canteiro;
+select e.razaoEmp, sum(linha) AS 'quantidade de linhas do canteiro' FROM empresa as e JOIN canteiro as c on e.idEmpresa = c.fkFazenda where fkFazenda = 1;
 
 create table relatorio (
 	idRel int primary key auto_increment,
@@ -67,7 +69,10 @@ create table relatorio (
 		idMedidas int primary key auto_increment,
 		umidade double,
 		temperatura_lm35 double, 
-		hr_medida DATETIME);
+		hr_medida DATETIME,
+        fkCanteiro INT,
+        constraint fk_Canteiro
+		foreign key  (fkCanteiro) references canteiro(idCanteiro));
         
 
 	Create table sensor (
@@ -98,4 +103,5 @@ create table relatorio (
 		constraint fk_sensorBloco
 		foreign key  (fkSensor) references sensor(idSensor));
    
-	
+	Select * from Empresa;
+		DESC Empresa;
