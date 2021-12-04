@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./public/assets/icons/melan2.ico" type="image/x-icon">
-  <link rel="stylesheet" href="../melancia/public/CSS/cadfaz.css">  
-  
+  <link rel="stylesheet" href="./CSS/cadfaz.css">
+
+
   <title>Cadastro de fazendas</title>
 </head>
 
 <body>
-   <!-- NAVBAR -->
   <nav role="navigation">
     <div id="menuToggle">
       <input type="checkbox" />
@@ -22,71 +22,73 @@
       <span></span>
 
       <ul id="menu">
-        <a href="Dasboard.html">
+        <h1 class="nome_usuario">Bem vindo a <b id="sp_empresa"></b><br>
+          Senhor(a) <b id="sp_resp"></b><br></h1>
+
+        <a href="./Dashboard/dashboard.html">
           <li>Inicio</li>
         </a>
-        <a href="#">
-          <li>Gráficos</li>
+        <a href="./cadfunc.html">
+          <li>Cadastrar funcionário</li>
         </a>
-        <a href="#">
-          <li>Perfil</li>
+        <a href="./cadFaz.html">
+          <li>Cadastrar fazenda</li>
         </a>
-        <a href="../Suporte.html">
+        <a href="./Suporte.html">
           <li>Suporte</li>
         </a>
-        <a href="../index.html">
+        <a href="./index.html">
           <li>Sair</li>
         </a>
       </ul>
     </div>
   </nav>
 
-
-    <div class="container">
-        <div class="div1">
-            <form id="cadFaz" method="post" onsubmit="return bt_cadastro()">
-                <h1>Cadastre sua fazenda</h1>
-               <div class="inp">
-                <select name="estado" id="estados">
-                  <option value="ac">Acre</option>
-                  <option value="al">Alagoas</option>
-                  <option value="ap">Amapá</option>
-                  <option value="am">Amazonas</option>
-                  <option value="bh">Bahia</option>
-                  <option value="ce">Ceará</option>
-                  <option value="es">Espírito Santo</option>
-                  <option value="go">Goiás</option>
-                  <option value="ma">Maranhão</option>
-                  <option value="mt'">Mato Grosso</option>
-                  <option value="ms">Mato Grosso do Sul</option>
-                  <option value="mg">Minas Gerais</option>
-                  <option value="pa">Pará</option>
-                  <option value="pb">Paraíba</option>
-                  <option value="pr">Paraná</option>
-                  <option value="pe">Pernambuco</option>
-                  <option value="pi">Piauí</option>
-                  <option value="rj">Rio de Janeiro</option>
-                  <option value="rn">Rio Grande do Norte</option>
-                  <option value="rs">Rio Grande do Sul</option>
-                  <option value="ro">Rondônia</option>
-                  <option value="rr">Roraima</option>
-                  <option value="sc">Acre</option>
-                  <option value="sp">São Paulo</option>
-                  <option value="se">Sergipe</option>
-                  <option value="to">Tocantins</option>
-                  <option value="df">Distrito Federal</option>
-                </select>
-                <input name="email" placeholder="Cidade" />
-                <input name="rua" placeholder="Rua" />
-                <input  type="number" name="numero" placeholder="Número" />
-                <input type="number" name="tamanho" placeholder="Hectares" />
-                <input type="number" name="canteiros" placeholder="Canteiros" />
-               </div>
-                <br>
-                <button>Cadastrar fazenda</button>
-              </form>
+  <div class="container">
+    <div class="div1">
+      <form id="cadFaz" method="post" onsubmit="return bt_cadastro()">
+        <h1>Cadastre sua fazenda</h1>
+        <div class="inp">
+          <select name="estado" id="estados">
+            <option value="ac">Acre</option>
+            <option value="al">Alagoas</option>
+            <option value="ap">Amapá</option>
+            <option value="am">Amazonas</option>
+            <option value="bh">Bahia</option>
+            <option value="ce">Ceará</option>
+            <option value="es">Espírito Santo</option>
+            <option value="go">Goiás</option>
+            <option value="ma">Maranhão</option>
+            <option value="mt'">Mato Grosso</option>
+            <option value="ms">Mato Grosso do Sul</option>
+            <option value="mg">Minas Gerais</option>
+            <option value="pa">Pará</option>
+            <option value="pb">Paraíba</option>
+            <option value="pr">Paraná</option>
+            <option value="pe">Pernambuco</option>
+            <option value="pi">Piauí</option>
+            <option value="rj">Rio de Janeiro</option>
+            <option value="rn">Rio Grande do Norte</option>
+            <option value="rs">Rio Grande do Sul</option>
+            <option value="ro">Rondônia</option>
+            <option value="rr">Roraima</option>
+            <option value="sc">Acre</option>
+            <option value="sp">São Paulo</option>
+            <option value="se">Sergipe</option>
+            <option value="to">Tocantins</option>
+            <option value="df">Distrito Federal</option>
+          </select>
+          <input class="inp_form" name="email" placeholder="Cidade" />
+          <input class="inp_form" name="rua" placeholder="Rua" />
+          <input class="inp_form" type="number" name="numero" placeholder="Número" />
+          <input class="inp_form" type="number" name="tamanho" placeholder="Hectares" />
+          <input class="inp_form" type="number" name="canteiros" placeholder="Canteiros" />
         </div>
+        <br>
+        <button>Cadastrar fazenda</button>
+      </form>
     </div>
+  </div>
 
 </body>
 

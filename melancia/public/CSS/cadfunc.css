@@ -43,12 +43,7 @@ body{
     margin-top: 20px;
 }
 
-.inp{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-}
-.inp_form{
+.inp_func{
     margin-top: 20px;
     height: 30px;
     width: 300px;
@@ -87,7 +82,7 @@ text-transform: uppercase;
 margin-left: 20px;
 transition: 0.5s;
 width: 20vw;
-margin-top: 3%;
+margin-top: 5%;
 
 }
 button:hover{
