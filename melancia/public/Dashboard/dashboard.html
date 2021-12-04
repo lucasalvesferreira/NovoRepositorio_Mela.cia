@@ -12,125 +12,126 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
         <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
         <script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+        <script src="../assets/js/funcoes.js"></script>
 
         <link rel="stylesheet" href="./dashboard.css">
 
     </head>
 </head>
+<body onload="validarSessao()">
+    <nav role="navigation">
+        <div id="menuToggle">
+        <input type="checkbox" />
 
-<nav role="navigation">
-    <div id="menuToggle">
-      <input type="checkbox" />
+        <span></span>
+        <span></span>
+        <span></span>
 
-      <span></span>
-      <span></span>
-      <span></span>
-
-      <ul id="menu">
-        Bem vindo a <b id="sp_empresa"></b><br>
-        Senhor(a) <b id="sp_resp"></b><br>
-        <a href="dashboard.html">
-          <li>Inicio</li>
-        </a>
-        <a href="../cadCant.html">
-          <li>Cadastrar Canteiro</li>
-        </a>
-        <a href="../cadFaz.html">
-          <li>Cadastrar Fazenda</li>
-        </a>
-        <a href="#">
-          <li>Perfil</li>
-        </a>
-        <a href="../Suporte.html">
-          <li>Suporte</li>
-        </a>
-        <a href="../index.html">
-          <li>Sair</li>
-        </a>
-      </ul>
-    </div>
-  </nav>
+        <ul id="menu">
+            Bem vindo a <b id="sp_empresa"></b><br>
+            Senhor(a) <b id="sp_resp"></b><br>
+            <a href="dashboard.html">
+            <li>Inicio</li>
+            </a>
+            <a href="../cadFaz.html">
+            <li>Cadastrar Fazenda</li>
+            </a>
+            <a href="../cadFunc.html">
+            <li>Cadastrar Funcionario</li>
+            </a>
+            <a href="#">
+            <li>Perfil</li>
+            </a>
+            <a href="../Suporte.html">
+            <li>Suporte</li>
+            </a>
+            <a href="../index.html">
+            <li>Sair</li>
+            </a>
+        </ul>
+        </div>
+    </nav>
 
 
 
-<div class="corpo">
+    <div class="corpo">
 
-    <div class="div_cima">
-        <i>Melan.cia</i>
+        <div class="div_cima">
+            <i>Melan.cia</i>
 
-        <div class="div_medias">
+            <div class="div_medias">
 
-            <div id="pequena">
-                <b> Media-Temperatura:</b>
+                <div id="pequena">
+                    <b> Media-Temperatura:</b>
+                </div>
+                <div id="pequena">
+                    <b> Media-Umidade:</b>
+                </div>
+                <div id="pequena">
+                    <b> Variação:</b>
+                </div>
+
             </div>
-            <div id="pequena">
-                <b> Media-Umidade:</b>
+            <div id="troca_canteiro">
+                <button clas="btn-chart" onclick="obterDadosGrafico(1)">Canteiro1</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(2)">Canteiro2</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro3</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(4)">Canteiro4</button>
             </div>
-            <div id="pequena">
-                <b> Variação:</b>
+
+        </div>
+
+
+        <div class="meio">
+
+            <div class="graficoMeioD">
+
+
+
             </div>
 
-        </div>
-        <div id="troca_canteiro">
-            <button clas="btn-chart" onclick="obterDadosGrafico(1)">Canteiro1</button>
-            <button clas="btn-chart" onclick="obterDadosGrafico(2)">Canteiro2</button>
-            <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro3</button>
-            <button clas="btn-chart" onclick="obterDadosGrafico(4)">Canteiro4</button>
-        </div>
-
-    </div>
-
-
-    <div class="meio">
-
-        <div class="graficoMeioD">
 
 
 
+
+
+
+            <div class="graficoMeioE">
+
+                
+
+            </div>
         </div>
 
 
 
+        <div class="baixo">
 
+            <div class="graficodireita">
 
+                <div class="dash">
+                    <div class="graph">
+                        <canvas id="canvas_grafico"></canvas>
 
-
-        <div class="graficoMeioE">
-
-            
-
-        </div>
-    </div>
-
-
-
-    <div class="baixo">
-
-        <div class="graficodireita">
-
-            <div class="dash">
-                <div class="graph">
-                    <canvas id="canvas_grafico"></canvas>
-
+                    </div>
                 </div>
             </div>
+
+            <div class="graficoEsquerda">
+                
+                <!-- <div class="dash">
+                    <div class="graph">
+                        <canvas id="canvas_grafico"></canvas>
+
+                    </div>
+                </div> -->
+
+            </div>
         </div>
 
-        <div class="graficoEsquerda">
-            
-            <!-- <div class="dash">
-                <div class="graph">
-                    <canvas id="canvas_grafico"></canvas>
-
-                </div>
-            </div> -->
-
-        </div>
     </div>
 
-</div>
-
-</div>
+    </div>
 
 
 </body>
@@ -138,7 +139,13 @@
 </html>
 
 <script>
+  var email = sessionStorage.EMAIL_USUARIO;
+  var razaoEmp = sessionStorage.razaoEmp_USUARIO;
+  var responsavel = sessionStorage.responsavel_USUARIO;
+  var id = sessionStorage.ID_EMPRESA;
 
+  sp_empresa.innerHTML = razaoEmp;
+  sp_resp.innerHTML = responsavel;
 let proximaAtualizacao;
 
 //verificar_autenticacao();
