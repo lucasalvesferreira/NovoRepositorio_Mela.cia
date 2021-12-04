@@ -14,15 +14,15 @@ router.get('/', (request, response, next) => {
         item.average = isNaN(average) ? 0 : average
     })
     
-    //let sum = ArduinoDataTemp.List.reduce((a, b) => a + b, 0);
-    //let average = (sum / ArduinoDataTemp.List.length).toFixed(2);
+    // let sum = ArduinoDataTemp.List.reduce((a, b) => a + b, 0);
+    // let average = (sum / ArduinoDataTemp.List.length).toFixed(2);
 
 
-    /*response.json({
+    response.json({
         data: ArduinoDataTemp.List,
         total: ArduinoDataTemp.List.length,
         average: isNaN(average) ? 0 : average,
-    });*/
+    });
 
     response.json(ArduinoDataTemp.List);
 
@@ -38,11 +38,15 @@ router.post('/sendData', (request, response) => {
     var luminosidade = ArduinoDataTemp.List[2].data;
     var temperatura_lm35 = ArduinoDataTemp.List[3].data;
 
+    // temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
+    // umidade = ArduinoData.List[ArduinoData.List.length - 1];
+
+
     umidade = umidade[umidade.length-1];
     temperatura_dht11 = temperatura_dht11[temperatura_dht11.length-1];
     luminosidade = luminosidade[luminosidade.length-1];
     temperatura_lm35 = temperatura_lm35[temperatura_lm35.length-1];
-    var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35) VALUES (null, ${umidade}, ${temperatura_lm35})`;
+    var sql = `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35,hr_medida) VALUES (null, ${umidade}, ${temperatura_lm35},now())`;
 
     // ${temperatura_dht11}, ${luminosidade},
 

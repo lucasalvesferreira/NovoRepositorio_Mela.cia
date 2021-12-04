@@ -73,7 +73,7 @@ class ArduinoRead {
                             this.listData[index].data.push(parseInt(item))
                         })
                     }
-                    //this.listData.push(parseFloat(data));
+                    // this.listData.push(parseFloat(data));
                 });
             } catch (e) {
             }

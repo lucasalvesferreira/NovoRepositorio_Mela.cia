@@ -1,25 +1,25 @@
 var database = require("../database/config");
 
-function buscarUltimasMedidas(idAquario,limite_linhas) {
+function buscarUltimasMedidas(idCanteiro,limite_linhas) {
     instrucaoSql = `select 
-                        temperatura, 
+                        temperatura_lm35, 
                         umidade, 
-                        momento,
-                        DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                        from medida
-                        where fk_aquario = ${idAquario}
-                        order by id desc limit ${limite_linhas}`;
+                        hr_medida,
+                        DATE_FORMAT(hr_medida,'%H:%i:%s') as momento_grafico
+                        from medidas
+                        where fkCanteiro = ${idCanteiro}
+                        order by idMedidas desc limit ${limite_linhas}`;
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function buscarMedidasEmTempoReal(idAquario) {
-    instrucaoSql = `select temperatura, 
+function buscarMedidasEmTempoReal(idCanteiro) {
+    instrucaoSql = `select temperatura_lm35, 
                             umidade, 
-                            DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
-                            fk_aquario 
-                            from medida where fk_aquario = ${idAquario} 
-                    order by id desc limit 1`;
+                            DATE_FORMAT(hr_medida,'%H:%i:%s') as momento_grafico, 
+                            fkCanteiro 
+                            from medidas where fkCanteiro = ${idCanteiro} 
+                    order by idMedidas desc limit 1`;
                     
     console.log("Executando a instrução SQL: \n"+instrucaoSql);
     return database.executar(instrucaoSql);
