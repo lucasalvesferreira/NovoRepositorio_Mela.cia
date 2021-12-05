@@ -5,9 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./public/assets/icons/melan2.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/icons/melan2.ico" type="image/x-icon">
   <link rel="stylesheet" href="./CSS/cadfaz.css">
-  <link rel="stylesheet" href="./Dashdashboard.css">
   <script src="./assets/js/funcoes.js"></script>
   <link rel="stylesheet" href="./Dashboard/dashboard.css">
   <title>Cadastro de fazendas</title>
@@ -18,32 +17,32 @@
   <!-- onload="validarSessao()" -->
   <nav role="navigation">
     <div id="menuToggle">
-        <input type="checkbox" />
+      <input type="checkbox" />
 
-        <span></span>
-        <span></span>
-        <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
 
-        <ul id="menu">
-            <h1 class="nome_emp">Bem vindo a <b id="sp_empresa"></b><br>
-                Senhor(a) <b id="sp_resp"></b><br></h1>
+      <ul id="menu">
+        <h1 class="nome_emp">Bem vindo a <b id="sp_empresa"></b><br>
+          Senhor(a) <b id="sp_resp"></b><br></h1>
 
-            <a href="dashboard.html">
-                <li>Inicio</li>
-            </a>
-            <a href="../cadFaz.html">
-                <li>Cadastrar Fazenda</li>
-            </a>
-            <a href="../cadFunc.html">
-                <li>Cadastrar Funcionario</li>
-            </a>
-            <a href="../Suporte.html">
-                <li>Suporte</li>
-            </a>
-            <a href="../index.html">
-                <li>Sair</li>
-            </a>
-        </ul>
+        <a href="./Dashboard/dashboard.html">
+          <li>Inicio</li>
+        </a>
+        <a href="./cadFaz.html">
+          <li>Cadastrar Fazenda</li>
+        </a>
+        <a href="./cadFunc.html">
+          <li>Cadastrar Funcionario</li>
+        </a>
+        <a href="./suporte2.html">
+          <li>Suporte</li>
+        </a>
+        <a href="./index.html">
+          <li>Sair</li>
+        </a>
+      </ul>
     </div>
   </nav>
 
@@ -87,10 +86,10 @@
           <input class="inp_form" type="number" name="numero" placeholder="Número" />
           <input class="inp_form" type="text" name="complemento" placeholder="Complemento" />
           <input class="inp_form" type="number" name="qtd_canteiros" placeholder="Canteiros" />
-          
+
         </div>
         <br>
-        <button>Cadastrar fazenda</button>
+        <button class="cadastrar">Cadastrar fazenda</button>
       </form>
     </div>
   </div>
@@ -111,7 +110,7 @@
     var qtd_canteiros = formulario.get("qtd_canteiro");
     var idEmpresa = sessionStorage.ID_EMPRESA;
     console.log("estado: " + estado + "\n cidade" + cidade + "\n idempresa: " + idEmpresa);
-    if(estado == "-"){
+    if (estado == "-") {
       alert("Selecione o estado que sua Fazenda está");
       return false;
     }
