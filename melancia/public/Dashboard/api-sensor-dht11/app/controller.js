@@ -33,17 +33,17 @@ router.post('/sendData', (request, response) => {
     temperatura = ArduinoData.ListTemp[ArduinoData.ListTemp.length - 1];
     umidade = ArduinoData.List[ArduinoData.List.length - 1];
 
-    var sql = 
-    // `
-    //     INSERT INTO medida (temperatura, umidade, momento, fk_aquario) 
-    //     VALUES (${temperatura}, ${umidade}, now(), ${((Math.random() * 3) + 1)})
-    // `;
+    var sql =
+        // `
+        //     INSERT INTO medida (temperatura, umidade, momento, fk_aquario) 
+        //     VALUES (${temperatura}, ${umidade}, now(), ${((Math.random() * 3) + 1)})
+        // `;
 
-    `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35,hr_medida,fkCanteiros) VALUES (null, ${umidade}, ${temperatura},now(), ${((Math.random() * 3) + 1)})`;
+        `INSERT INTO medidas (idMedidas,umidade, temperatura_lm35,hr_medida,fkCanteiro) VALUES (null, ${umidade}, ${temperatura},now(), ${((Math.random() * 3) + 1)})`;
 
 
-    db.query(sql, function(err, result){
-        if(err) throw err;
+    db.query(sql, function (err, result) {
+        if (err) throw err;
         console.log("Medidas inseridas: " + result.affectedRows)
     });
     response.sendStatus(200);

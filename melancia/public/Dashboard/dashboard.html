@@ -30,8 +30,9 @@
             <span></span>
 
             <ul id="menu">
-                Bem vindo a <b id="sp_empresa"></b><br>
-                Senhor(a) <b id="sp_resp"></b><br>
+                <h1 class="nome_emp">Bem vindo a <b id="sp_empresa"></b><br>
+                    Senhor(a) <b id="sp_resp"></b><br></h1>
+
                 <a href="dashboard.html">
                     <li>Inicio</li>
                 </a>
@@ -59,7 +60,7 @@
     <div class="corpo">
 
         <div class="div_cima">
-            <i>Melan.cia</i>
+            <span id="mel">Melan</span><span id="ciaa">cia</span>
 
             <div class="div_medias">
 
@@ -77,16 +78,16 @@
 
             </div>
             <div id="troca_canteiro">
-                <button clas="btn-chart" onclick="obterDadosGrafico(1)">Canteiro1</button>
-                <button clas="btn-chart" onclick="obterDadosGrafico(2)">Canteiro2</button>
-                <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro3</button>
-                <button clas="btn-chart" onclick="obterDadosGrafico(4)">Canteiro4</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(1)">Canteiro 1</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(2)">Canteiro 2</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro 3</button>
+                <button clas="btn-chart" onclick="obterDadosGrafico(4)">Canteiro 4</button>
             </div>
 
         </div>
 
 
-        <div class="meio">
+        <!-- <div class="meio">
 
             <div class="graficoMeioD">
 
@@ -105,7 +106,7 @@
 
 
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -123,20 +124,20 @@
 
             <div class="graficoEsquerda">
 
-                <<<<<<< HEAD <div class="dash">
-                    =======
-                    <!-- <div class="dash">
->>>>>>> be09904ec555415088866214dacd055f0715d0eb
-                    <div class="graph">
-                        <canvas id="canvas_grafico2"></canvas>
+                <div class="dash">
 
+                    <div class="dash">
+
+                        <div class="graph">
+                            <canvas id="canvas_grafico2"></canvas>
+
+                        </div>
                     </div>
+
                 </div>
-
             </div>
-        </div>
 
-    </div>
+        </div>
 
     </div>
 
@@ -387,7 +388,7 @@
                         dados.datasets[0].borderColor = '#483D8B';
                         dados.datasets[0].backgroundColor = '#836FFF';
 
-                    }else if ((novoRegistro[0].umidade >= 20 && novoRegistro[0].umidade <= 23)||novoRegistro[0].umidade >= 28 && novoRegistro[0].umidade <= 31 ){
+                    } else if ((novoRegistro[0].umidade >= 20 && novoRegistro[0].umidade <= 23) || novoRegistro[0].umidade >= 28 && novoRegistro[0].umidade <= 31) {
                         dados.datasets[0].borderColor = '#FFFF00';
                         dados.datasets[0].backgroundColor = '#F0E68C';
                     }
@@ -431,11 +432,11 @@
                         dados.datasets[0].borderColor = 'red';
                         dados.datasets[0].backgroundColor = 'red';
 
-                    }  else if (novoRegistro[0].temperatura_lm35 <= 19) {
+                    } else if (novoRegistro[0].temperatura_lm35 <= 19) {
                         dados.datasets[0].borderColor = '#483D8B';
                         dados.datasets[0].backgroundColor = '#836FFF';
 
-                    }else if ((novoRegistro[0].temperatura_lm35  >= 20 && novoRegistro[0].temperatura_lm35 <= 23)||novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31 ){
+                    } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
                         dados.datasets[0].borderColor = '#FFFF00';
                         dados.datasets[0].backgroundColor = '#F0E68C';
                     }

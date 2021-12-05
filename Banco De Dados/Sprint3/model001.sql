@@ -1,6 +1,7 @@
 /*  Criando o banco de dados Melan.cia */
 
 Create database Melancia;
+
 	Use Melancia;
 
 create table Empresa(
@@ -23,7 +24,6 @@ create table Empresa(
             complemento VARCHAR(50),
             qtd_canteiros INT,
             fkEmpresa int,
-            fkCanteiros int,
 			constraint fk_empresaFaz
 			foreign key (fkEmpresa) references Empresa(idEmpresa)
 	);
@@ -33,7 +33,6 @@ create table Empresa(
 			constraint fk_FazendaCant
 			foreign key  (fkFazenda) references Fazenda(idFazenda)
 			);          
-	ALTER TABLE fazenda ADD FOREIGN KEY (fkCanteiros) REFERENCES canteiro(idCanteiro);
             
             
 
@@ -68,9 +67,8 @@ create table relatorio (
 		umidade double,
 		temperatura_lm35 double, 
 		hr_medida DATETIME,
-        fkCanteiro INT,
-        constraint fk_Canteiro
-		foreign key  (fkCanteiro) references canteiro(idCanteiro));
+        fkCanteiro INT
+	);
         
 
 	Create table sensor (
