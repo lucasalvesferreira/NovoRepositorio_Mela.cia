@@ -29,7 +29,7 @@ function dht11(options) {
     minTemperature = typeof minTemperature == "undefined" ? 18 : minTemperature;
     maxTemperature = typeof maxTemperature == "undefined" ? 25 : maxTemperature;
   
-    minHumidity = typeof minHumidity == "undefined" ? 20 : minHumidity;
+    minHumidity = typeof minHumidity == "undefined" ? 0 : minHumidity;
     maxHumidity = typeof maxHumidity == "undefined" ? 80 : maxHumidity;
   
     let randomHumidity = Math.floor(

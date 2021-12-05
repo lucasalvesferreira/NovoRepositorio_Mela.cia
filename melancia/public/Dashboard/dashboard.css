@@ -150,6 +150,7 @@ transform: rotate(-45deg) translate(0, -1px);
 /* ALINHAMENTO DA DIV */
 #menu
 {
+border-radius: 25px;
 width: 180px;
 height: 700px;
 margin: -100px 0 0 -50px;
@@ -353,7 +354,7 @@ display: flex;
 
 }
 
-#pequena {  
+.pequena {  
     background-color: rgb(255, 0, 0);
     height: 60px;
     width: 30%;
@@ -362,12 +363,16 @@ display: flex;
     margin-left: 10px;
     justify-content: center;
     align-items: center;
-
-    
-
     
 }
+.pequena span {  
+    display: flex;
+    margin-left: 15%;
+    font-size: x-large;
+    color: #f7d3d3;
+    font-weight: bolder;
 
+}
 #troca_canteiro {
   
     height: 100px;
@@ -395,8 +400,8 @@ button:hover{
 
 }
 
-#pequena b{
-  font-size: 9px;
+.pequena b{
+  font-size: 14px;
     margin: 30px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
