@@ -19,7 +19,11 @@
     </head>
 </head>
 
+<<<<<<< HEAD
 <body>
+=======
+<body onload="validarSessao()">
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
     <nav role="navigation">
         <div id="menuToggle">
             <input type="checkbox" />
@@ -122,7 +126,11 @@
 
             <div class="graficoEsquerda">
 
+<<<<<<< HEAD
                 <div class="dash">
+=======
+                <!-- <div class="dash">
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
                     <div class="graph">
                         <canvas id="canvas_grafico2"></canvas>
 
@@ -159,6 +167,7 @@
         if (proximaAtualizacao != undefined) {
             clearTimeout(proximaAtualizacao);
         }
+<<<<<<< HEAD
 
         fetch(`/medidas/ultimas/${idCanteiro}`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
@@ -218,6 +227,17 @@
                 });
 
 
+=======
+
+        fetch(`/medidas/ultimas/${idCanteiro}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta, idCanteiro);
+                });
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
             }
@@ -228,6 +248,7 @@
 
     }
 
+<<<<<<< HEAD
 
 
     // só altere aqui se souber o que está fazendo!
@@ -254,6 +275,32 @@
             dados.datasets[0].data.push(registro.umidade);
         }
 
+=======
+    // só altere aqui se souber o que está fazendo!
+    function plotarGrafico(resposta, idCanteiro) {
+        console.log('iniciando plotagem do gráfico...');
+
+        var dados = {
+            labels: [],
+            datasets: [
+                {
+                    yAxisID: 'y-umidade',
+                    label: 'Umidade',
+                    borderColor: '#32B9CD',
+                    backgroundColor: '#32b9cd8f',
+                    fill: true,
+                    data: []
+                }
+            ]
+        };
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            dados.labels.push(registro.momento_grafico);
+            dados.datasets[0].data.push(registro.umidade);
+        }
+
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
         console.log(JSON.stringify(dados));
 
         var ctx = canvas_grafico.getContext('2d');
@@ -288,6 +335,7 @@
                 }
             }
         });
+<<<<<<< HEAD
 
         //Atualiza os dados de 2 em 2 segundos
         setTimeout(() => atualizarGrafico(idCanteiro, dados), 2000);
@@ -391,6 +439,31 @@
 
                     window.grafico_linha.update();
 
+=======
+
+        //Atualiza os dados de 2 em 2 segundos
+        setTimeout(() => atualizarGrafico(idCanteiro, dados), 2000);
+    }
+
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizarGrafico(idCanteiro, dados) {
+        fetch(`/medidas/tempo-real/${idCanteiro}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (novoRegistro) {
+
+                    console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+                    console.log(`Dados atuais do gráfico: ${dados}`);
+
+                    // tirando e colocando valores no gráfico
+                    dados.labels.shift(); // apagar o primeiro
+                    dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+
+                    window.grafico_linha.update();
+
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
                     proximaAtualizacao = setTimeout(() => atualizarGrafico(idCanteiro, dados), 5000);
                 });
             } else {
@@ -403,6 +476,7 @@
             });
 
     }
+<<<<<<< HEAD
     // só mexer se quiser alterar o tempo de atualização
     // ou se souber o que está fazendo!
     function atualizarGrafico2(idCanteiro, dados) {
@@ -452,5 +526,7 @@
             });
 
     }
+=======
+>>>>>>> be09904ec555415088866214dacd055f0715d0eb
 
 </script>

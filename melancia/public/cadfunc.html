@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./public/assets/icons/melan2.ico" type="image/x-icon">
+  <link rel="stylesheet" href="./CSS/cadfaz.css">
+
+  <title>Cadastro de fazendas</title>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav role="navigation">
+    <div id="menuToggle">
+      <input type="checkbox" />
+
+      <span></span>
+      <span></span>
+      <span></span>
+
+      <ul id="menu">
+        <h1 class="nome_usuario">Bem vindo a <b id="sp_empresa"></b><br>
+          Senhor(a) <b id="sp_resp"></b><br></h1>
+
+        <a href="./Dashboard/dashboard.html">
+          <li>Inicio</li>
+        </a>
+        <a href="./cadfunc.html">
+          <li>Cadastrar funcionário</li>
+        </a>
+        <a href="./cadFaz.html">
+          <li>Cadastrar fazenda</li>
+        </a>
+        <a href="./Suporte.html">
+          <li>Suporte</li>
+        </a>
+        <a href="./index.html">
+          <li>Sair</li>
+        </a>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="div1">
+      <form id="cadFaz" method="post" onsubmit="return bt_cadastro()">
+        <div class="inp">
+          <h1>Cadastre seu funcionário</h1>
+
+          <input class="inp_form" name="nome" placeholder="Nome do funcionário" style="margin-left: 8%;" />
+          <input class="inp_form" name="email" type="email" placeholder="Email do funcionário"
+            style="margin-left: 8%;" />
+          <input class="inp_form" type="password" name="senha" placeholder="Senha do funcionário"
+            style="margin-left: 8%;" />
+          <input class="inp_form" type="text" name="telefone" placeholder="Telefone do funcionário"
+            style="margin-left: 8%;" />
+        </div>
+        <br>
+        <button style="margin-left: 13%;">Cadastrar funcionário</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+
+</html>

@@ -11,23 +11,32 @@ body{
     background-image: url('../assets/farm.jpg') ;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
-
+:root{
+    --red-main: #ff0000;
+    --red-main-darker: #BF211E;
+    --green-main: #27a300;
+    --green-main-darker: #008000;
+    }
 
 
 .container{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding-top: 5%;
 }
 
 .div1{
-    height: 80vh;
+    height: 550px;
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-   
+    background-color: rgba(245, 245, 245, 0.808);
+    border-radius: 15px;
+
 }
 
 .div1 h1{
@@ -39,41 +48,33 @@ body{
     display: flex;
     flex-direction: column;
 }
-input{
+.inp_form{
+    margin-top: 20px;
+    height: 30px;
+    width: 300px;
+    padding: 1%;
+    background-color: rgb(224, 221, 221);
+    border-color: rgb(224, 221, 221);
+    border-radius: 10px;
+    outline: 0;
+
+}
+#estados{
     margin-top: 20px;
     height: 30px;
     width: 300px;
     background-color: rgb(224, 221, 221);
     border-color: rgb(224, 221, 221);
-    transition: 0.4s;
+    border-bottom: var(--red-main);
+}
+
+.nome_usuario{
+margin-bottom: 5%;
+}
     
 
-}
-input:hover{
-    height: 36px;
-    width: 306px;
-    background-color: rgb(245, 189, 189);
-    border-color: rgb(153, 211, 100);
-}
-
-select{
-    margin-top: 20px;
-    height: 30px;
-    width: 300px;
-    background-color: rgb(224, 221, 221);
-    border-color: rgb(224, 221, 221);
-    transition: 0.4s;
-}
-
-select:hover{
-    height: 36px;
-    width: 306px;
-    background-color: rgb(245, 189, 189);
-    border-color: rgb(153, 211, 100);
-}
-
 button{
-    cursor: pointer;
+cursor: pointer;
 border-radius: 20px;
 border: 1px solid #E55547;
 background-color: #E55547;
@@ -83,7 +84,7 @@ font-weight: bold;
 padding: 12px 45px;
 letter-spacing: 1px;
 text-transform: uppercase;
-/*margin-left: 20px;*/
+margin-left: 20px;
 transition: 0.5s;
 width: 20vw;
 margin-top: 3%;
@@ -91,9 +92,9 @@ margin-top: 3%;
 }
 button:hover{
     border-radius: 100px;
-    border: 1px solid #1b0200;
-    background-color: #8f0e03;
-    box-shadow: rgba(0, 0, 0, 0.418) 2px 2px;
+    border: 1px solid black;
+    background-color: var(--green-main);
+    box-shadow: rgba(255, 255, 255, 0.418) 2px 2px;
     color: #FFFFFF;
 }
 
@@ -103,7 +104,7 @@ button:hover{
 display: block;
 position: fixed;
 top: 50px;
-left: 50px;
+left: 25px;
 float: left;
 }
 
@@ -111,14 +112,14 @@ float: left;
 #menuToggle a
 {
 text-decoration: none;
-color: #232323;
+color: black;
 transition: color 0.3s ease;
 }
 
 /* ANIMAÇÃO QUANDO PASSA O MOUSE */
 #menuToggle a:hover
 {
-color: var(--red-main-darker);
+color: var(--green-main);
 }
 
 
@@ -187,6 +188,32 @@ ANIMAÇÃO DO SPAN QUE SÃO OS 3 TRAÇOS
 {
 transform: rotate(-45deg) translate(0, -1px);
 }
+
+/* ALINHAMENTO DA DIV */
+#menu
+{
+width: 180px;
+height: 700px;
+margin: -100px 0 0 -50px;
+padding: 50px;
+padding-top: 125px;
+background: rgba(245, 245, 245, 0.719);
+list-style-type: none;
+background-image: url(../assets/watermelon-face-26061.png);
+background-repeat: no-repeat;
+background-size: 80%;
+background-position: bottom;
+background-position-x: 50%;
+background-position-y: 100%;
+
+/* ANIMAÇÃO VOLTA MAIS LENTA */
+-webkit-font-smoothing: antialiased;
+/* ANIMAÇÃO IDA E VOLTA*/
+transform: translate(-100%, 0);
+transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+/* ALINHAMENTO DA LETRAS */
 #menu li
 {
 padding: 10px 0;
@@ -198,4 +225,9 @@ font-weight: normal;
 #menuToggle input:checked ~ ul
 {
 transform: none;
+}
+
+
+a{
+color: #000;
 }
