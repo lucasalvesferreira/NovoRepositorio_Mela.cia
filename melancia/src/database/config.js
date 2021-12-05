@@ -4,7 +4,7 @@ var sql = require('mssql');
 // CONEXÃO DO SQL SERVER - AZURE (NUVEM)
 var sqlServerConfig = {
     user: "XXXXX",
-    password: "XXXXX",  
+    password: "XXXXX",
     database: "XXXXX",
     server: "XXXXX",
     pool: {
@@ -12,26 +12,27 @@ var sqlServerConfig = {
         min: 0,
         idleTimeoutMillis: 30000
     },
-    options: {  
+    options: {
         encrypt: true, // for azure
     }
 }
 
 // CONEXÃO DO MYSQL WORKBENCH (LOCAL)- LUCAS
 //var mySqlConfig = {
-  // host     : 'localhost',
-  // port     : '3306',
-  // user     : 'root',
-  // password : 'Pikachu22@',
-  // database : 'melancia'};
-  
-  var mySqlConfig = {
-    host     : 'localhost',
-    port     : '3306',
-    user     : 'root',
-    password : '',
-    database : 'melancia'};
-  
+// host     : 'localhost',
+// port     : '3306',
+// user     : 'root',
+// password : 'Pikachu22@',
+// database : 'melancia'};
+
+var mySqlConfig = {
+    host: 'localhost',
+    port: '3306',
+    user: 'root',
+    password: '1225',
+    database: 'melancia'
+};
+
 function executar(instrucao) {
     // VERIFICA A VARIÁVEL DE AMBIENTE SETADA EM app.js
     if (process.env.AMBIENTE_PROCESSO == "producao") {
@@ -47,19 +48,19 @@ function executar(instrucao) {
             });
             sql.on('error', function (erro) {
                 return ("ERRO NO SQL SERVER (Azure): ", erro);
-             });
+            });
         });
-    } else if(process.env.AMBIENTE_PROCESSO == "desenvolvimento"){    
+    } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         return new Promise(function (resolve, reject) {
             var conexao = mysql.createConnection(mySqlConfig);
             conexao.connect();
-            conexao.query(instrucao, function(erro, resultados) {
+            conexao.query(instrucao, function (erro, resultados) {
                 conexao.end();
                 if (erro) {
                     reject(erro);
-                }                      
+                }
                 console.log(resultados);
-                resolve(resultados);    
+                resolve(resultados);
             });
             conexao.on('error', function (erro) {
                 return ("ERRO NO MySQL WORKBENCH (Local): ", erro.sqlMessage);
@@ -68,7 +69,7 @@ function executar(instrucao) {
     } else {
         return new Promise(function (resolve, reject) {
             console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
-            reject ("AMBIENTE NÃO CONFIGURADO EM app.js")
+            reject("AMBIENTE NÃO CONFIGURADO EM app.js")
         });
     }
 }
