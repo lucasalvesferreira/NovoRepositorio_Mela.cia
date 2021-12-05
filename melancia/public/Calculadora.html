@@ -21,7 +21,7 @@
         <li><a href="index.html">Inicio</a></li>
         <li><a href="Sobrenos.html">Sobre nós</a></li>
         <li><a href="Calculadora.html">Calculadora</a></li>
-        <li><a href="Suporte.html">Suporte</a></li> 
+        <li><a href="Suporte.html">Suporte</a></li>
         <li><a href="Acesso.html">Acesso</a></li>
       </ul>
     </nav>
@@ -36,7 +36,7 @@
     </div>
     <div class="bloco" id="div_men" style="display: none;">
       <h1>Sem os sensores seu lucro seria de R$ <span id="valorperda" style="color: red;"></span> com <b
-          style="color: red;">40</b> de perda no plantio</h1> <br><br>
+          style="color: red;">40%</b> de perda no plantio</h1> <br><br>
       <h1>Com os sensores implantados seu lucro seria de <span id="valorlucro" style="color: green;"></span></h1>
       <button class="bntcomp" onclick="bt_reset()" id="reset" style="display: none;"><span>Simular
           novamente</span></button>
@@ -90,7 +90,7 @@
     reset.style.display = "block";
 
     valorlucro.innerHTML = `${lucro}%`
-    valorperda.innerHTML = `${perda}%`
+    valorperda.innerHTML = `${perda.toFixed(2)}`
     // div_men.innerHTML = `Sem os sensores seu lucro seria de R$ <b style=" color: red;>${perda}</b>, com 40% de perda no
     // plantio.
     // <br> <br>
