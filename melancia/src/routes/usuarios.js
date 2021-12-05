@@ -16,7 +16,11 @@ router.post("/cadastrar", function(req, res) {
 });
 router.post("/cadastrarFazenda/:idEmpresa", function(req, res){
     usuarioController.cadastrarFazenda(req, res);
-})
+});
+
+router.post("/cadastrarFuncionario/:idEmpresa", function (req, res) {
+    usuarioController.cadastrarFuncionario(req, res);
+});
 
 router.post("/autenticar", function(req, res) {
     usuarioController.entrar(req, res);

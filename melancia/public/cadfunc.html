@@ -6,59 +6,59 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./public/assets/icons/melan2.ico" type="image/x-icon">
+  <script src="assets/js/funcoes.js"></script>
   <link rel="stylesheet" href="./CSS/cadfaz.css">
-
-  <title>Cadastro de fazendas</title>
+  <link rel="stylesheet" href="./Dashboard/dashboard.css">
+  <title>Cadastro de Funcionários</title>
 </head>
 
 <body>
   <!-- NAVBAR -->
   <nav role="navigation">
     <div id="menuToggle">
-      <input type="checkbox" />
+        <input type="checkbox" />
 
-      <span></span>
-      <span></span>
-      <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
 
-      <ul id="menu">
-        <h1 class="nome_usuario">Bem vindo a <b id="sp_empresa"></b><br>
-          Senhor(a) <b id="sp_resp"></b><br></h1>
+        <ul id="menu">
+            <h1 class="nome_emp">Bem vindo a <b id="sp_empresa"></b><br>
+                Senhor(a) <b id="sp_resp"></b><br></h1>
 
-        <a href="./Dashboard/dashboard.html">
-          <li>Inicio</li>
-        </a>
-        <a href="./cadfunc.html">
-          <li>Cadastrar funcionário</li>
-        </a>
-        <a href="./cadFaz.html">
-          <li>Cadastrar fazenda</li>
-        </a>
-        <a href="./Suporte.html">
-          <li>Suporte</li>
-        </a>
-        <a href="./index.html">
-          <li>Sair</li>
-        </a>
-      </ul>
+            <a href="dashboard.html">
+                <li>Inicio</li>
+            </a>
+            <a href="../cadFaz.html">
+                <li>Cadastrar Fazenda</li>
+            </a>
+            <a href="../cadFunc.html">
+                <li>Cadastrar Funcionario</li>
+            </a>
+            <a href="../Suporte.html">
+                <li>Suporte</li>
+            </a>
+            <a href="../index.html">
+                <li>Sair</li>
+            </a>
+        </ul>
     </div>
   </nav>
+
+
   <div class="container">
     <div class="div1">
-      <form id="cadFaz" method="post" onsubmit="return bt_cadastro()">
-        <div class="inp">
-          <h1>Cadastre seu funcionário</h1>
+      <form id="form_cadastroFunc" method="post" onsubmit="return bt_cadastro()">
 
-          <input class="inp_form" name="nome" placeholder="Nome do funcionário" style="margin-left: 8%;" />
-          <input class="inp_form" name="email" type="email" placeholder="Email do funcionário"
-            style="margin-left: 8%;" />
-          <input class="inp_form" type="password" name="senha" placeholder="Senha do funcionário"
-            style="margin-left: 8%;" />
-          <input class="inp_form" type="text" name="telefone" placeholder="Telefone do funcionário"
-            style="margin-left: 8%;" />
-        </div>
+        <h1>Cadastre seu Funcionário:</h1>
+        <input class="inp_form" name="nome_f" placeholder="Nome do funcionário" />
+        <input class="inp_form" name="senha_f" placeholder="Senha do funcionário" />
+        <input class="inp_form" name="email_f" placeholder="E-mail do funcionário" />
+        <input class="inp_form" name="tel_f" placeholder="Telefone do funcionário" />
+        <input class="inp_form" name="fkfaz_f" placeholder="Fazenda onde o funcionário trampa" />
+
         <br>
-        <button style="margin-left: 13%;">Cadastrar funcionário</button>
+        <button>Cadastrar funcionário</button>
       </form>
     </div>
   </div>
@@ -66,3 +66,42 @@
 </body>
 
 </html>
+
+<script>
+  function limparFormulario() {
+    document.getElementById("form_cadastroFunc").reset();
+  }
+  function bt_cadastro() {
+
+    var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastroFunc")));
+
+    var nome_f = formulario.get("nome_f");
+    var senha_f = formulario.get("senha_f");
+    var email_f = formulario.get("email_f");
+    var tel_f = formulario.get("tel_f");
+    var fkfaz_f = formulario.get("fkfaz_f");
+    var idEmpresa = sessionStorage.ID_EMPRESA;
+
+    console.log("nome_f: " + nome_f + "\n cidade" + senha_f + "\n idempresa: " + idEmpresa);
+
+    fetch(`/usuarios/cadastrarFuncionario/${idEmpresa}`, {
+      method: "POST",
+      body: formulario
+    }).then(function (resposta) {
+
+      console.log("resposta: ", resposta);
+      if (resposta.ok) {
+        window.alert("Funcionário cadastrado!");
+        limparFormulario();
+        window.location = "./Dashboard/dashboard.html";
+      } else {
+        throw ("Houve um erro ao tentar realizar o cadastro!");
+      }
+    }).catch(function (resposta) {
+      console.log(`#ERRO: ${resposta}`);
+    });
+
+    return false;
+  }
+
+</script>

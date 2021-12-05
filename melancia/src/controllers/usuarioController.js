@@ -142,11 +142,51 @@ function cadastrarFazenda(req, res) {
     }
 }
 
+function cadastrarFuncionario(req, res) {
+    var nome_f = req.body.nome_f;
+    var senha_f = req.body.senha_f;
+    var email_f = req.body.email_f;
+    var tel_f = req.body.tel_f;
+    var fkfaz_f = req.body.fkfaz_f;
+    var idEmpresa = req.params.idEmpresa;
+
+    if (nome_f == undefined) {
+        res.status(400).send("Seu nome de funcionario está undefined!");
+    } else if (senha_f == undefined) {
+        res.status(400).send("Sua senha de funcionario está undefined!");
+    } else if (email_f == undefined) {
+        res.status(400).send("Seu email de funcionario está undefined!");
+    } else if (tel_f == undefined) {
+        res.status(400).send("Seu telefone de funcionario está undefined!");
+    } else if (fkfaz_f == undefined) {
+        res.status(400).send("Sua fkfaz de funcionario está undefined!");
+    } else if (idEmpresa == undefined) {
+        res.status(400).send("Sua Empresa está undefined!");
+    } else {
+        usuarioModel.cadastrarFuncionario(nome_f, senha_f, email_f, tel_f, fkfaz_f, idEmpresa)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 
 module.exports = {
     entrar,
     cadastrar,
     listar,   
     testar,
-    cadastrarFazenda
+    cadastrarFazenda,
+    cadastrarFuncionario
 }

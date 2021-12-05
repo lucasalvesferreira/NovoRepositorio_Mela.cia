@@ -44,11 +44,8 @@ create table funcionario (
 	emailFunc varchar (50),
 	telefone varchar (15),
     fkFazenda int,
-    fkCanteiro INT,
     constraint fk_FazendaFun
-    foreign key  (fkFazenda) references Fazenda(idFazenda),
-    constraint fk_CanteiroFun
-    foreign key  (fkCanteiro) references canteiro(idCanteiro)
+    foreign key  (fkFazenda) references Fazenda(idFazenda)
 	);
 
 
