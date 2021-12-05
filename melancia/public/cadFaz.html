@@ -47,10 +47,11 @@
 
   <div class="container">
     <div class="div1">
-      <form id="cadFaz" method="post" onsubmit="return bt_cadastro()">
+      <form id="form_cadastroFaz" method="post" onsubmit="return bt_cadastro()">
         <h1>Cadastre sua fazenda</h1>
         <div class="inp">
           <select name="estado" id="estados">
+            <option value="-">-- Selecione o local da fazenda --</option>
             <option value="ac">Acre</option>
             <option value="al">Alagoas</option>
             <option value="ap">Amapá</option>
@@ -60,7 +61,7 @@
             <option value="es">Espírito Santo</option>
             <option value="go">Goiás</option>
             <option value="ma">Maranhão</option>
-            <option value="mt'">Mato Grosso</option>
+            <option value="mt">Mato Grosso</option>
             <option value="ms">Mato Grosso do Sul</option>
             <option value="mg">Minas Gerais</option>
             <option value="pa">Pará</option>
@@ -79,11 +80,12 @@
             <option value="to">Tocantins</option>
             <option value="df">Distrito Federal</option>
           </select>
-          <input class="inp_form" name="email" placeholder="Cidade" />
-          <input class="inp_form" name="rua" placeholder="Rua" />
+          <input class="inp_form" name="cidade" placeholder="Cidade" />
+          <input class="inp_form" name="logradouro" placeholder="Rua" />
           <input class="inp_form" type="number" name="numero" placeholder="Número" />
-          <input class="inp_form" type="number" name="tamanho" placeholder="Hectares" />
-          <input class="inp_form" type="number" name="canteiros" placeholder="Canteiros" />
+          <input class="inp_form" type="text" name="complemento" placeholder="Complemento" />
+          <input class="inp_form" type="number" name="qtd_canteiros" placeholder="Canteiros" />
+          
         </div>
         <br>
         <button>Cadastrar fazenda</button>
@@ -97,9 +99,6 @@
     document.getElementById("form_cadastroFaz").reset();
   }
   function bt_cadastro() {
-    /*if(estado == "-"){
-      alert
-    }*/
     var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastroFaz")));
 
     var estado = formulario.get("estado");
@@ -110,7 +109,10 @@
     var qtd_canteiros = formulario.get("qtd_canteiro");
     var idEmpresa = sessionStorage.ID_EMPRESA;
     console.log("estado: " + estado + "\n cidade" + cidade + "\n idempresa: " + idEmpresa);
-
+    if(estado == "-"){
+      alert("Selecione o estado que sua Fazenda está");
+      return false;
+    }
     fetch(`/usuarios/cadastrarFazenda/${idEmpresa}`, {
       method: "POST",
       body: formulario
@@ -130,6 +132,7 @@
 
     return false;
   }
+
 
 </script>
 
