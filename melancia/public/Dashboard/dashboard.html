@@ -42,9 +42,6 @@
                 <a href="../cadFunc.html">
                     <li>Cadastrar Funcionario</li>
                 </a>
-                <a href="#">
-                    <li>Perfil</li>
-                </a>
                 <a href="../Suporte.html">
                     <li>Suporte</li>
                 </a>
@@ -64,20 +61,20 @@
 
             <div class="div_medias">
 
-                <div class="pequena">
-                    <b> Media-Temperatura:</b>
+                <div class="medidas">
+                    <b>Media-Temperatura:</b>
                     <span id="span_mediaTemp"></span>
 
                 </div>
 
-                <div class="pequena">
-                    <b> Media-Umidade:</b>
+                <div class="medidas">
+                    <b>Media-Umidade:</b>
                     <span id="span_mediaUmi"></span>
 
                 </div>
 
             </div>
-            <div id="troca_canteiro">
+            <div id="opcoes_canteiro">
                 <button clas="btn-chart" onclick="obterDadosGrafico(1)">Canteiro 1</button>
                 <button clas="btn-chart" onclick="obterDadosGrafico(2)">Canteiro 2</button>
                 <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro 3</button>
@@ -87,54 +84,20 @@
         </div>
 
 
-        <!-- <div class="meio">
-
-            <div class="graficoMeioD">
-
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="graficoMeioE">
-
-
-
-            </div>
-        </div> -->
-
 
 
         <div class="baixo">
-
             <div class="graficodireita">
-
                 <div class="dash">
-                    <div class="graph">
-                        <canvas id="canvas_grafico"></canvas>
-
-                    </div>
+                    <canvas id="canvas_grafico"></canvas>
                 </div>
             </div>
 
-            <div class="graficoEsquerda">
-
+            <div style="margin-left: 2%;" class="graficoEsquerda">
                 <div class="dash">
-
-                    <div class="dash">
-
-                        <div class="graph">
-                            <canvas id="canvas_grafico2"></canvas>
-
-                        </div>
-                    </div>
-
+                    <canvas id="canvas_grafico2"></canvas>
                 </div>
+
             </div>
 
         </div>
