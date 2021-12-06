@@ -80,26 +80,40 @@
                 <button clas="btn-chart" onclick="obterDadosGrafico(3)">Canteiro 3</button>
                 <button clas="btn-chart" onclick="obterDadosGrafico(4)">Canteiro 4</button>
             </div>
-
         </div>
-
-
 
 
         <div class="baixo">
             <div class="graficodireita">
                 <div class="dash">
+                    <img class="img_alertas" id="img_alertas_umi" src="../assets/correto_gif.gif" alt="">
                     <canvas id="canvas_grafico"></canvas>
                 </div>
             </div>
 
             <div style="margin-left: 2%;" class="graficoEsquerda">
                 <div class="dash">
+                    <img class="img_alertas" id="img_alertas_temp" src="../assets/correto_gif.gif" alt="">
                     <canvas id="canvas_grafico2"></canvas>
                 </div>
 
             </div>
 
+            
+        </div>
+        <div class="legenda">
+            <div class="titulo_legenda">
+                Ideal:
+                <div class="correto"></div>
+            </div>
+            <div class="titulo_legenda">
+                Atenção:
+                <div class="atencao"></div>
+            </div>
+            <div class="titulo_legenda">
+                Crítico:
+                <div class="errado"></div>
+            </div>
         </div>
 
     </div>
@@ -344,16 +358,20 @@
                     // Alertas por Cores de umidade
 
                     if (novoRegistro[0].umidade >= 40) {
+                        img_alertas_umi.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = 'red';
                         dados.datasets[0].backgroundColor = 'red';
-
                     } else if (novoRegistro[0].umidade <= 19) {
+                        img_alertas_umi.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = '#483D8B';
                         dados.datasets[0].backgroundColor = '#836FFF';
 
                     } else if ((novoRegistro[0].umidade >= 20 && novoRegistro[0].umidade <= 23) || novoRegistro[0].umidade >= 28 && novoRegistro[0].umidade <= 31) {
+                        img_alertas_umi.src = "../assets/atencao_gif.gif"
                         dados.datasets[0].borderColor = '#FFFF00';
                         dados.datasets[0].backgroundColor = '#F0E68C';
+                    } else if (novoRegistro[0].umidade > 23 && novoRegistro[0].umidade < 28) {
+                        img_alertas_umi.src = "../assets/correto_gif.gif"
                     }
 
 
@@ -392,16 +410,21 @@
                     // Alertas por Cores de Temperatura
 
                     if (novoRegistro[0].temperatura_lm35 >= 33) {
+                        img_alertas_temp.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = 'red';
                         dados.datasets[0].backgroundColor = 'red';
 
                     } else if (novoRegistro[0].temperatura_lm35 <= 19) {
+                        img_alertas_temp.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = '#483D8B';
                         dados.datasets[0].backgroundColor = '#836FFF';
 
                     } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
+                        img_alertas_temp.src = "../assets/atencao_gif.gif"
                         dados.datasets[0].borderColor = '#FFFF00';
                         dados.datasets[0].backgroundColor = '#F0E68C';
+                    } else if (novoRegistro[0].temperatura_lm35 > 23 && novoRegistro[0].temperatura_lm35 < 28) {
+                        img_alertas_temp.src = "../assets/correto_gif.gif"
                     }
 
 
