@@ -285,8 +285,8 @@
                 {
                     yAxisID: 'y-temperatura_lm35',
                     label: 'temperatura_lm35',
-                    borderColor: 'green',
-                    backgroundColor: 'green',
+                    borderColor: '#00b300',
+                    backgroundColor: '#00800090',
                     fill: true,
                     data: []
                 }
@@ -357,20 +357,22 @@
 
                     // Alertas por Cores de umidade
 
-                    if (novoRegistro[0].umidade >= 40) {
+                    if (novoRegistro[0].umidade >= 35) {
                         img_alertas_umi.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = 'red';
-                        dados.datasets[0].backgroundColor = 'red';
+                        dados.datasets[0].backgroundColor = '#ff04008c';
                     } else if (novoRegistro[0].umidade <= 19) {
                         img_alertas_umi.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = '#483D8B';
-                        dados.datasets[0].backgroundColor = '#836FFF';
+                        dados.datasets[0].backgroundColor = '#826fff9c';
 
                     } else if ((novoRegistro[0].umidade >= 20 && novoRegistro[0].umidade <= 23) || novoRegistro[0].umidade >= 28 && novoRegistro[0].umidade <= 31) {
                         img_alertas_umi.src = "../assets/atencao_gif.gif"
                         dados.datasets[0].borderColor = '#FFFF00';
-                        dados.datasets[0].backgroundColor = '#F0E68C';
+                        dados.datasets[0].backgroundColor = '#ffe6006b';
                     } else if (novoRegistro[0].umidade > 23 && novoRegistro[0].umidade < 28) {
+                        dados.datasets[0].borderColor = '#32B9CD';
+                        dados.datasets[0].backgroundColor = '#32b9cd8f';
                         img_alertas_umi.src = "../assets/correto_gif.gif"
                     }
 
@@ -417,13 +419,15 @@
                     } else if (novoRegistro[0].temperatura_lm35 <= 19) {
                         img_alertas_temp.src = "../assets/errado_gif.gif"
                         dados.datasets[0].borderColor = '#483D8B';
-                        dados.datasets[0].backgroundColor = '#836FFF';
+                        dados.datasets[0].backgroundColor = '#826fff9c';
 
                     } else if ((novoRegistro[0].temperatura_lm35 >= 20 && novoRegistro[0].temperatura_lm35 <= 23) || novoRegistro[0].temperatura_lm35 >= 28 && novoRegistro[0].temperatura_lm35 <= 31) {
                         img_alertas_temp.src = "../assets/atencao_gif.gif"
                         dados.datasets[0].borderColor = '#FFFF00';
-                        dados.datasets[0].backgroundColor = '#F0E68C';
+                        dados.datasets[0].backgroundColor = '#ffe6006b';
                     } else if (novoRegistro[0].temperatura_lm35 > 23 && novoRegistro[0].temperatura_lm35 < 28) {
+                        dados.datasets[0].borderColor = '#00b300';
+                        dados.datasets[0].backgroundColor = '#00800090';
                         img_alertas_temp.src = "../assets/correto_gif.gif"
                     }
 

@@ -12,6 +12,11 @@ font-family:  'Spartan', sans-serif;
 --green-main: #61c443;
 --green-main-darker: #008000;
 }
+
+.teste {
+    color: #32b9cd8f;
+}
+
 #ciaa{
 font-size: 50px;
 color: var(--green-main);
